@@ -1,4 +1,4 @@
-@servers(['web'=>'root@182.92.162.175'])
+@servers(['web'=>'root@123.56.198.15'])
 
 @task('backup',['on' => 'web'])
     cd /www/app/exd
@@ -10,13 +10,13 @@
     php artisan migrate:refresh --seed
 @endtask
 
-@task('up',['on'=>'web'])
+@task('qidong',['on'=>'web'])
     cd /www/app/exd
     php artisan up
     php artisan queue:listen
 @endtask
 
-@task('halt',['on'=>'web'])
+@task('weihu',['on'=>'web'])
     cd /www/app/exd
     php artisan down
 @endtask
