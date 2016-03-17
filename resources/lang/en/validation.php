@@ -88,8 +88,32 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'phone' => [
+            'required'  =>  '您的手机号码未填写',
+            'unique'    =>  '此手机号码已被注册',
+            'min'       =>  '手机号码长度输入有误',
+            'max' =>  '手机号码长度输入有误'
+        ],
+        'email' => [
+            'required'  =>  '请填写您的邮箱地址',
+            'unique'    =>  '此邮箱已被注册',
+            'email'     =>  '您输入的邮箱格式有误',
+        ],
+        'cpt' => [
+            'required'  =>  '请填写图形验证码',
+            'captcha'   =>  '图形验证码错误',
+        ],
+        'password' => [
+            'required'  => '请填写要设置的密码',
+            'min'       => '密码长度不能小于6位',
+            'max'       => '密码长度不能大于16位',
+            'confirmed' => '两次输入的密码不一致',
+        ],
+        'vcode' => [
+            'required'  => '短信验证码未填写',
+        ],
+        'token' => [
+            'required'  => '通行令牌没有携带，禁止入内',
         ],
     ],
 
