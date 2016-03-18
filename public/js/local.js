@@ -38,7 +38,7 @@ $(function(){
                 alert(data.info);
             },
             error: function (data){
-                alert('失败'+data.info);
+                alert('失败'+data);
             }
         });
     }
