@@ -1,6 +1,6 @@
 $(function(){
     var address = 'http://123.56.198.15/';
-    function regPhone(){
+    function regPhoneq(){
         $.ajax({
             url: address+'/tool/cpt_check',
             type: "post",
@@ -23,6 +23,19 @@ $(function(){
                 }else{
                     alert(data.info);
                 }
+            }
+        });
+    }
+
+    function regPhone(){
+        $.ajax({
+            url: address+'/tool/phone_code',
+            data: {
+                'phone':$('input[name=phone]').val(),
+                '_token':$('input[name=_token]').val()
+            },
+            success: function(data){
+                alert(data.info);
             }
         });
     }
