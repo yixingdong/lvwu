@@ -3,9 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EmailConfirmRequest;
 use App\Http\Requests\PhoneConfirmRequest;
 use App\Http\Requests\PhoneResetRequest;
+use App\Http\Requests\PostEmailRequest;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\DB;
 
 class PasswordController extends Controller
 {
@@ -96,7 +102,6 @@ class PasswordController extends Controller
             back()->withErrors('修改失败，请重试');
         }
         Auth::login($user);
-
         return redirect('login')->withErrors('密码修改成功，请登录!');
 
     }
@@ -115,34 +120,18 @@ class PasswordController extends Controller
      * 验证用户Email是否存在，存在则发送更改密码链接到其邮箱
      *
      */
-    public function postEmail(Request $request)
+    public function postEmail(PostEmailRequest $request)
     {
-        $userInfo = array(
-            'email' => $request->get('email'),
-        );
+        $response = Password::sendResetLink($request->only('email'), function (Message $message) {
+            $message->subject('律屋密码重置邮件');
+        });
 
-        $validator = ValidRule::validator($userInfo,'post_email');
+        switch ($response) {
+            case Password::RESET_LINK_SENT:
+                return redirect('/')->withErrors('请登录您的邮箱重新设置密码');
 
-        if($validator->passes())
-        {
-            $user = User::where('email',$userInfo['email'])->first();
-            if($user){
-                $response = Password::sendResetLink($request->only('email'), function (Message $message) {
-                    $message->subject('密码重置邮件');
-                });
-
-                switch ($response) {
-                    case Password::RESET_LINK_SENT:
-                        return redirect('/')->withErrors('请登录您的邮箱重新设置密码');
-
-                    case Password::INVALID_USER:
-                        return redirect()->back()->withErrors('无效的邮件地址');
-                }
-            }else{
-                return redirect('register/email')->withErrors('此邮箱尚未注册，请先注册用户');
-            }
-        }else{
-            return redirect()->back()->withErrors($validator);
+            case Password::INVALID_USER:
+                return redirect()->back()->withErrors('无效的邮件地址');
         }
     }
 
@@ -152,15 +141,17 @@ class PasswordController extends Controller
      */
     public function getEmailReset($token = null)
     {
-        if($token)
-        {
-            $info = DB::table('password_resets')->where('token',$token)->first();
-            if(is_object($info)){
-                return View('auth.email_reset')->with('token',$token)->with('email',$info->email);
-            }else{
-                return redirect('reset/email')->withErrors('通行令牌已失效，请从头来过');
-            }
+        if (is_null($token)) {
+            throw new NotFoundHttpException;
         }
+
+        $info = DB::table('password_resets')->where('token',$token)->first();
+
+        if($info){
+            return View('auth.email_reset')->with('token',$token)->with('email',$info->email);
+        }
+
+        return redirect('reset/email')->withErrors('通行令牌已失效，请从头来过');
     }
 
     /**
@@ -168,35 +159,22 @@ class PasswordController extends Controller
      * @param $request
      * @return null
      */
-    public function postEmailReset(Request $request)
+    public function postEmailReset(EmailConfirmRequest $request)
     {
-        $userInfo = array(
-            'email'         => $request->get('email'),
-            'password'      => $request->get('password'),
-            'password_confirmation' => $request->get('password_confirmation'),
-            'token'         => $request->get('token')
+        $credentials = $request->only(
+            'email', 'password', 'password_confirmation', 'token'
         );
-        $validator = ValidRule::validator($userInfo,'post_email_reset');
 
-        if($validator->passes())
-        {
-            $credentials = $request->only(
-                'email', 'password', 'password_confirmation', 'token'
-            );
+        $response = Password::reset($credentials, function ($user, $password) {
+            $this->resetPassword($user, $password);
+        });
 
-            $response = Password::reset($credentials, function ($user, $password) {
-                $this->resetPassword($user, $password);
-            });
+        switch ($response) {
+            case Password::PASSWORD_RESET:
+                return redirect('/')->withErrors('修改密码成功，律屋欢迎您超人归来');
 
-            switch ($response) {
-                case Password::PASSWORD_RESET:
-                    return redirect('/')->withErrors('修改密码成功，E行动欢迎您超人归来');
-
-                default:
-                    return redirect('reset/email')->withErrors('密码修改失败，请从头来过');
-            }
-        }else{
-            return redirect()->back()->withErrors($validator);
+            default:
+                return redirect('reset/email')->withErrors('密码修改失败，请重试一次');
         }
     }
 }

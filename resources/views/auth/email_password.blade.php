@@ -3,10 +3,10 @@
 <div class="box box-info" style="border:solid green 1px;">
 	<div class="box box-widget widget-user" style="margin-bottom:30px;">	    
 	    <div class="widget-user-header bg-aqua-active">
-	      <h3 class="widget-user-username">你心里果然没有我</h3>
+	      <h3 class="widget-user-username">你果然还是把我忘了</h3>
 	    </div>
 	    <div class="widget-user-image">
-	      <img class="img-circle" src="{{URL::asset('/')}}bower_components/AdminLTE/dist/img/user4-128x128.jpg" alt="User Avatar">
+	      <img class="img-circle" src="{{URL::asset('/')}}images/user4-128x128.jpg" alt="User Avatar">
 	    </div>
 	</div>
 	<!-- form start -->

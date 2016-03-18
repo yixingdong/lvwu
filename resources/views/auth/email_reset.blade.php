@@ -13,7 +13,7 @@
     <form class="form-horizontal" method="POST" action="{{URL('reset/email/confirmed')}}">
       {!! csrf_field() !!}
       <input type="hidden" name="token" value="{{ $token }}">
-      <input type="email" name="email" class="hidden" value="{{ $email }}">
+      <input type="hidden" name="email" value="{{ $email }}">
       <div class="box-body">        
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
@@ -27,6 +27,7 @@
         <div class="box-footer">          
           <button type="submit" class="btn btn-info pull-right">提交</button>
         </div><!-- /.box-footer -->
+      </div>
     </form>
 </div>
 @stop
