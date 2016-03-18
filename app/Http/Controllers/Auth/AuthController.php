@@ -80,13 +80,13 @@ class AuthController extends Controller
     {
         $key = 'reg_'.$request->get('phone');
 
-        if(!Cache::has($key)){
-            back()->withErrors('抱歉，验证码已过期');
-        }
-
-        if($request->get('vcode') != Cache::get($key)){
-            back()->withErrors('验证码不正确');
-        }
+//        if(!Cache::has($key)){
+//            back()->withErrors('抱歉，验证码已过期');
+//        }
+//
+//        if($request->get('vcode') != Cache::get($key)){
+//            back()->withErrors('验证码不正确');
+//        }
 
         $info = array_merge($request->all(),['active'=>true]);
         $user = $this->create($info);
@@ -218,7 +218,7 @@ class AuthController extends Controller
         if($result){
             $info = $data[0];
             Mail::send('auth.email_active', ['token' => $info['token'] ], function ($m) use ($user) {
-                $m->to($user->email)->subject('律屋在线邮箱绑定邮件');
+                $m->to($user->email)->subject('律屋邮箱绑定');
             });
         }
     }

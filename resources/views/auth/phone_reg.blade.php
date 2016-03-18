@@ -12,6 +12,7 @@
     <!-- form start -->
     <form class="form-horizontal" method="POST" action="{{URL('/register')}}">
       {!! csrf_field() !!}
+      <input type="hidden" name="type" value="reg">
       <div class="box-body">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-phone"></i></span>
@@ -59,5 +60,5 @@
 @stop
 @section('script')
 <script src="{{URL::asset('/')}}js/app.min.js"></script>
-<script type="text/javascript" src="{{URL::asset('/')}}js/local.js"></script>
+<script src="{{URL::asset('/')}}js/local.js"></script>
 @stop

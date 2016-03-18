@@ -35,6 +35,7 @@ Route::group(['prefix' => 'tool'], function()
     Route::post('sms_send','ToolsController@sendMessage');
     Route::post('cpt_check','ToolsController@captchaCheck');
     Route::get('cpt','ToolsController@getCaptcha');
+    Route::post('msg','ToolsController@sendMessage');
 });
 
 Route::group(['prefix' => 'system'], function()

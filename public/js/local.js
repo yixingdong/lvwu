@@ -1,7 +1,7 @@
 $(function(){
    $("#get_vcode").click(function(){
        $.ajax({
-           url: 'http://182.92.162.175/tool/cpt_check',
+           url: 'http://123.56.198.15/tool/cpt_check',
            type: "post",
            data: {
                'cpt':$('input[name=cpt]').val(),
@@ -10,7 +10,7 @@ $(function(){
            success: function(data){
                if(data.code == 200){
                    $.ajax({
-                       url: 'http://182.92.162.175/tool/sms_send',
+                       url: 'http://123.56.198.15/tool/sms_send',
                        type: "post",
                        data: {
                            'phone':$('input[name=phone]').val(),
