@@ -1,5 +1,5 @@
 $(function(){
-    var address = 'http://192.168.33.160/';
+    var address = 'http://123.56.198.15/';
     function regPhone(){
         $.ajax({
             url: address+'/tool/cpt_check',
