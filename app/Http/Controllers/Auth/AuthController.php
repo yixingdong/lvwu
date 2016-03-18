@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -51,7 +54,7 @@ class AuthController extends Controller
             'phone'     =>  isset($data['phone'])?$data['phone']:null,
             'email'     =>  isset($data['email'])?$data['email']:null,
             'type'      =>  isset($data['type'])?$data['type']:null,
-            'active'    =>  $data['active'],
+            'active'    =>  isset($data['active'])?$data['active']:false,
             'password'  =>  bcrypt($data['password'])
         ]);
     }
@@ -64,7 +67,7 @@ class AuthController extends Controller
      */
     public function getPhoneRegister()
     {
-        return view('auth.phone_register');
+        return view('auth.phone_reg');
     }
 
     /**
@@ -116,10 +119,10 @@ class AuthController extends Controller
         $phone = $request->get('phone');
         $pwd = $request->get('password');
 
-        if(!Auth::attempt(['phone'=>$phone,'password'=>$pwd])){
-            back()->withErrors('账号密码有误');
+        if(Auth::attempt(['phone'=>$phone,'password'=>$pwd])){
+            return redirect('/');
         }
-        return redirect()->intended('/');
+        back()->withErrors('账号密码有误');
     }
 
 
@@ -144,10 +147,10 @@ class AuthController extends Controller
         $email = $request->get('email');
         $pwd = $request->get('password');
 
-        if(!Auth::attempt(['email'=>$email,'password'=>$pwd])){
-            return redirect('login/email')->withErrors('账号密码有误');
+        if(Auth::attempt(['email'=>$email,'password'=>$pwd])){
+            return redirect()->to('/');
         }
-        return redirect()->intended('/');
+        return redirect('login/email')->withErrors('账号密码有误');
     }
 
 
@@ -158,7 +161,7 @@ class AuthController extends Controller
      */
     public function getEmailRegister()
     {
-        return view('auth.email_regist');
+        return view('auth.email_reg');
     }
 
     /**
@@ -173,6 +176,7 @@ class AuthController extends Controller
         $info = array_merge($request->all(),['active'=>false]);
         $user = $this->create($info);
 
+
         if(is_object($user)){
             $this->sendActivatedMail($user);
             return redirect('/')->withErrors('恭喜您注册成功!请到您邮箱进行激活');
@@ -180,5 +184,42 @@ class AuthController extends Controller
 
         back()->withErrors('注册失败，请再试一次');
 
+    }
+
+    public function getActiveEmail($token = null)
+    {
+        if($token){
+            $info = DB::table('email_actives')->where('token',$token)->first();
+            if(is_object($info)){
+                $user = User::where('email',$info->email)->first();
+                $user->active = true;
+                if($user->save()){
+                    DB::table('email_actives')->where('token',$token)->delete(); // 删除此条存储记录
+                    Auth::login($user);
+                    return redirect('/')->withErrors('邮箱已激活并为您登录');
+                }
+            }
+            //已过激活失效期，是否重新发射激活邮件
+            return redirect('/')->withErrors('验证信息已过期');
+        }
+    }
+
+    private function sendActivatedMail($user)
+    {
+
+        $data = array(
+            array(
+                'email'   => $user->email,
+                'token'   => Str::random(40),
+            )
+        );
+
+        $result = DB::table('email_actives')->insert($data);
+        if($result){
+            $info = $data[0];
+            Mail::send('auth.email_active', ['token' => $info['token'] ], function ($m) use ($user) {
+                $m->to($user->email)->subject('律屋在线邮箱绑定邮件');
+            });
+        }
     }
 }

@@ -30,5 +30,24 @@ Route::get('reset/email/{token}', 'Auth\PasswordController@getEmailReset');
 Route::post('reset/email/confirmed', 'Auth\PasswordController@postEmailReset');
 
 
+Route::group(['prefix' => 'tool'], function()
+{
+    Route::post('sms_send','ToolsController@sendMessage');
+    Route::post('cpt_check','ToolsController@captchaCheck');
+    Route::get('cpt','ToolsController@getCaptcha');
+});
+
+Route::group(['prefix' => 'system'], function()
+{
+    Route::get('/','SystemController@index');
+    Route::get('/phpinfo','SystemController@phpinfo');
+    Route::get('/clear','SystemController@dbClear');
+    Route::get('/backup','SystemController@dbBackup');
+    Route::get('/recovery','SystemController@dbRecovery');
+    Route::get('/maker/{model}','SystemController@mcMaker');
+    Route::get('/faker/{model}','SystemController@dataFaker');
+});
+
+
 
 

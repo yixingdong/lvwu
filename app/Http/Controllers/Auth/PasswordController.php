@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PhoneConfirmRequest;
 use App\Http\Requests\PhoneResetRequest;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
@@ -48,19 +49,26 @@ class PasswordController extends Controller
      */
     public function postPhoneReset(PhoneResetRequest $request)
     {
-        $key = 'reg_'.$request->get('phone');
+        $phone = $request->get('phone');
+        $user = User::where('phone', $phone)->first();
+
+        if(!is_object($user)){
+            return redirect('register')->withErrors('此号码尚未注册，请注册后登录');
+        }
+
+        $key = 'reg_'.$phone;
 
         if(!Cache::has($key)){
-            return redirect('reset')->withErrors('验证码已失效');
+            back()->withErrors('验证码已失效');
         }
 
         $value = Cache::get($key);
 
-        if($request->get('vcode') != $value){
-            return redirect('reset')->withErrors('验证码不正确');
+        if($request->get('v_code') != $value){
+            back()->withErrors('验证码不正确');
         }
 
-        return redirect('reset/confirm')->with('phone',$userInfo['phone']);
+        return redirect('reset/confirm')->with('phone',$phone);
     }
 
     /**
@@ -77,38 +85,20 @@ class PasswordController extends Controller
      * 提交新密码并设置（手机号码方式）
      * @return mixed
      */
-    public function postPhoneResetConfirm(Request $request)
+    public function postPhoneResetConfirm(PhoneConfirmRequest $request)
     {
         $phone = $request->get('phone');
 
-        $userInfo = array(
-            'password'   => $request->get('password'),
-            'password_confirmation'   => $request->get('password_confirmation')
-        );
+        $user = User::where('phone', $phone)->first();
 
-        $validator = ValidRule::validator($userInfo,'phone_pwd_2');
-
-        if($validator->passes())
-        {
-            if(!Cache::has($phone)){
-                return redirect('reset')->withErrors('验证码已过期');
-            }
-
-            $user = User::where('phone', $phone)->first();
-            if($user)
-            {
-                $user->password = bcrypt($userInfo['password']);
-                if($user->save()){
-                    return redirect('login')->withErrors('密码修改成功，请登录!');
-                }else{
-                    return redirect('reset')->withErrors('修改失败，请重试');
-                }
-            }else{
-                return redirect('register')->withErrors('此号码尚未注册，请注册后登录');
-            }
-        }else{
-            return redirect('reset')->withErrors($validator);
+        $user->password = bcrypt($request->get('password'));
+        if(!$user->save()){
+            back()->withErrors('修改失败，请重试');
         }
+        Auth::login($user);
+
+        return redirect('login')->withErrors('密码修改成功，请登录!');
+
     }
 
     /**
