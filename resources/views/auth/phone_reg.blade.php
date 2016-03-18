@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class="col-sm-2">
-            <button id="get_vcode" type="button" class="btn btn-sm btn-danger">获取手机验证码</button>
+            <button id="get_code" type="button" class="btn btn-sm btn-danger">获取手机验证码</button>
           </div>
         </div>
         <div class="box-footer">

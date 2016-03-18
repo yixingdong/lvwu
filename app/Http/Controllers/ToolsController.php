@@ -11,63 +11,122 @@ use Illuminate\Support\Facades\Cache;
 
 class ToolsController extends Controller
 {
-    public function sendSMS($phone,$type,$content)
+    /**
+     * 发送手机验证码，支持短信，语音两种
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function sendPhoneCode(Request $request)
+    {
+        $info = array(
+            'method'  => 'sms',
+            'phone'   => $request->get('phone'),
+            'content' => $this->randString(4),
+        );
+
+        $result = $this->sendMessage($info);
+
+        if($result){
+            Cache::put('reg'.$info['phone'], $info['content'], 1);
+            return response()->json(['code' => 200, 'info' => '验证发送成功']);
+        }
+
+        return response()->json(['code' => 400, 'info' => '验证发送失败']);
+    }
+
+    /**
+     * 发送模板短信
+     *
+     * @param $phone
+     * @param $content
+     * @return bool
+     */
+    public function sendSMS($phone, $content)
     {
         $result = PhpSms::make()->to($phone)->template('YunTongXun', '1')->data([$content, 4])->send();
 
         if($result){
-            if($type=='reg'||$type=='reset'){
-                Cache::put($type.'_'.$phone, $content, 1);
-            }
-
-            return response()->json(['code' => 200, 'info' => '验证短信发送成功']);
+            return true;
         }
-        return response()->json(['code' => 400, 'info' => '验证短信发送失败']);
+        return false;
     }
 
-    public function sendVoice($phone,$type,$content)
+    /**
+     * 发送语音消息
+     *
+     * @param $phone
+     * @param $content
+     * @return bool
+     */
+    public function sendVoice($phone, $content)
     {
         $result = PhpSms::voice($content)->to($phone)->send();
 
         if($result){
-            if($type=='reg'||$type=='reset'){
-                Cache::put($type.'_'.$phone, $content, 1);
-            }
-
-            return response()->json(['code' => 200, 'info' => '语音验证发送成功']);
+            return true;
         }
-        return response()->json(['code' => 400, 'info' => '语音验证发送失败']);
+        return false;
     }
 
-    public function sendNotification($phone,$type,$content)
+    /**
+     * 发送通知短信
+     *
+     * @param $phone
+     * @param $content
+     * @return bool
+     */
+    public function sendNotify($phone, $content)
     {
         //只希望使用内容方式发送,如云片,luosimao
         $result = PhpSms::make()->to($phone)->content($content)->send();
 
         if($result){
-            return response()->json(['code' => 200, 'info' => '通知发送成功']);
+            return true;
         }
 
-        return response()->json(['code' => 400, 'info' => '通知发送失败']);
+        return false;
     }
 
-    public function sendMessage(Request $request)
+    /**
+     * 发送消息总接口
+     *
+     * @param $info
+     * @return bool
+     */
+    public function sendMessage($info)
     {
-        $phone = $request->get('phone');
-        $type = $request->get('type');
+        switch($info['method']){
+            case 'sms':
+                return $this->sendSMS($info['phone'],$info['content']);
+
+            case 'voice':
+                return $this->sendVoice($info['phone'],$info['content']);
+
+            case 'notify':
+                return $this->sendNotify($info['phone'],$info['content']);
+
+            default:
+                break;
+        }
+    }
+
+    public function sendMessageByRequest(Request $request)
+    {
         $method = $request->get('method');
+        $phone = $request->get('phone');
         $content = $request->get('content');
 
         switch($method){
             case 'sms':
-                $this->sendSMS($phone,$type,$content);
-                break;
+                return $this->sendSMS($phone,$content);
+
             case 'voice':
-                $this->sendVoice($phone,$type,$content);
-                break;
+                return $this->sendVoice($phone,$content);
+
             case 'notify':
-                $this->sendNotification($phone,$type,$content);
-                break;
+                return $this->sendNotify($phone,$content);
+
             default:
                 break;
         }

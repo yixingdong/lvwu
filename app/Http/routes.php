@@ -32,10 +32,10 @@ Route::post('reset/email/confirmed', 'Auth\PasswordController@postEmailReset');
 
 Route::group(['prefix' => 'tool'], function()
 {
-    Route::post('sms_send','ToolsController@sendMessage');
     Route::post('cpt_check','ToolsController@captchaCheck');
     Route::get('cpt','ToolsController@getCaptcha');
-    Route::post('msg','ToolsController@sendMessage');
+    Route::post('phone_code','ToolsController@sendPhoneCode');
+    Route::post('message','ToolsController@sendMessageByRequest');
 });
 
 Route::group(['prefix' => 'system'], function()

@@ -1,30 +1,34 @@
 $(function(){
-   $("#get_vcode").click(function(){
-       $.ajax({
-           url: 'http://123.56.198.15/tool/cpt_check',
-           type: "post",
-           data: {
-               'cpt':$('input[name=cpt]').val(),
-               '_token':$('input[name=_token]').val()
-           },
-           success: function(data){
-               if(data.code == 200){
-                   $.ajax({
-                       url: 'http://123.56.198.15/tool/sms_send',
-                       type: "post",
-                       data: {
-                           'phone':$('input[name=phone]').val(),
-                           '_token':$('input[name=_token]').val()
-                       },
-                       success: function(data){
-                           alert(data.info);
-                       }
-                   });
-               }else{
+    var address = 'http://192.168.33.160/';
+    function regPhone(){
+        $.ajax({
+            url: address+'/tool/cpt_check',
+            type: "post",
+            data: {
+                'cpt':$('input[name=cpt]').val(),
+                '_token':$('input[name=_token]').val()
+            },
+            success: function(data){
+                if(data.code == 200){
+                    $.ajax({
+                        url: address+'/tool/phone_code',
+                        data: {
+                            'phone':$('input[name=phone]').val(),
+                            '_token':$('input[name=_token]').val()
+                        },
+                        success: function(data){
+                            alert(data.info);
+                        }
+                    });
+                }else{
                     alert(data.info);
-               }
-           }
-       });
+                }
+            }
+        });
+    }
+
+   $("#get_code").click(function(){
+        regPhone();
     });
 
     //var map = new AMap.Map('map');   
