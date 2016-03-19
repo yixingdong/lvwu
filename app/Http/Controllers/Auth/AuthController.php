@@ -14,6 +14,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Cache;
 
 class AuthController extends Controller
 {
