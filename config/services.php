@@ -35,4 +35,26 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | 第三方登录
+    |--------------------------------------------------------------------------
+    | 第三方登录账户管理
+    |
+    */
+    'qq' => [
+        'client_id'     => '101278262',
+        'client_secret' => '2a9b4fa482ea566e5b8a2c80c3e806a4',
+        'redirect'      => 'http://exingdong.com/test/qq/callback',
+    ],
+    'weibo' => [
+        'client_id'     => '4052205488',
+        'client_secret' => 'cedfbfd62a3eb07ba9947671f9ffa8f5',
+        'redirect'      => 'http://exingdong.com/test/wb/callback',
+    ],
+    'wechat' => [
+        'client_id'     => 'wxc9512ee29f35dbe1',
+        'client_secret' => 'bcd8f9aab70b6b8ce365cfb1d764736d',
+        'redirect'      => 'http://www.exingdong.com/callback',
+    ],
 ];

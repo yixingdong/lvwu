@@ -150,7 +150,9 @@ return [
         Intervention\Image\ImageServiceProvider::class,//Intervention 图像处理库
         Mews\Captcha\CaptchaServiceProvider::class, //图像验证码生成器
         Toplan\PhpSms\PhpSmsServiceProvider::class, //短信服务
-        Toplan\Sms\SmsManagerServiceProvider::class //短信服务
+        Toplan\Sms\SmsManagerServiceProvider::class, //短信服务
+        Overtrue\LaravelSocialite\ServiceProvider::class,//第三方登录
+        Overtrue\LaravelWechat\ServiceProvider::class, //微信开发包
     ],
 
     /*
@@ -206,6 +208,8 @@ return [
         'Image'     => Intervention\Image\Facades\Image::class, //图片服务
         'Captcha'   => Mews\Captcha\Facades\Captcha::class, //图形验证码生成器
         'PhpSms'    => Toplan\PhpSms\Facades\Sms::class, //短信发送服务
-        'SmsManager' => Toplan\Sms\Facades\SmsManager::class //短信管理服务
+        'SmsManager' => Toplan\Sms\Facades\SmsManager::class, //短信管理服务
+        'Socialite' => Overtrue\LaravelSocialite\Socialite::class,//第三方登录
+        'Wechat' => Overtrue\LaravelWechat\Facade::class, //微信开发包
     ],
 ];

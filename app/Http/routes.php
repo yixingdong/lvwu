@@ -29,6 +29,17 @@ Route::post('reset/email', 'Auth\PasswordController@postEmail');
 Route::get('reset/email/{token}', 'Auth\PasswordController@getEmailReset');
 Route::post('reset/email/confirmed', 'Auth\PasswordController@postEmailReset');
 
+Route::group(['prefix' => 'third'], function()
+{
+    Route::get('/wx/login','ThirdLoginController@wxLogin');
+    Route::get('/wx/callback','ThirdLoginController@wxCallback');
+    Route::get('/qq/login','ThirdLoginController@qqLogin');
+    Route::get('/qq/callback','ThirdLoginController@qqCallback');
+    Route::get('/wb/login','ThirdLoginController@wbLogin');
+    Route::get('/wb/callback','ThirdLoginController@wbCallback');
+
+    Route::get('/wx/check','ThirdLoginController@wxCheck');
+});
 
 Route::group(['prefix' => 'tool'], function()
 {
