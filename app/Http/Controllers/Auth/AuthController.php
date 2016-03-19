@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -84,7 +85,8 @@ class AuthController extends Controller
         if(!Cache::has($key)){
             back()->withErrors('抱歉，验证码已过期');
         }
-
+        $value = Cache::get($key);
+        dd($key.'~'.$value);
         if($request->get('code') != Cache::get($key)){
             back()->withErrors('验证码不正确');
         }
