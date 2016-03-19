@@ -29,8 +29,7 @@ $(function(){
 
     function regPhone(){
         $.ajax({
-            url: address+'/tool/phone_code',
-            type: "post",
+            url: address+'/tool/phone_code',            
             data: {
                 'phone':$('input[name=phone]').val(),
                 '_token':$('input[name=_token]').val()
