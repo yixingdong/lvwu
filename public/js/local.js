@@ -37,9 +37,6 @@ $(function(){
             success: function(data){
                 alert(data.info);
             },
-            error: function (data){
-                alert('失败'+data+url);
-            }
         });
     }
 

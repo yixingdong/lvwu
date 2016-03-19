@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Mews\Captcha\Facades\Captcha;
 use Illuminate\Support\Facades\Cache;
-use Toplan\PhpSms;
+use \PhpSms;
 
 class ToolsController extends Controller
 {
@@ -20,20 +20,17 @@ class ToolsController extends Controller
      */
     public function sendPhoneCode(Request $request)
     {
-        //dd('I am here');
-        $result = PhpSms::make()->to($request->get('18301191705'))->template('YunTongXun', '1')->data(['lala', 4])->send();
-        dd($result);
-
         $info = array(
-            'method'  => 'sms',
-            'phone'   => $request->get('phone'),
-            'content' => $this->randString(4),
+            'method'   =>  'sms',
+            'phone'    =>  '18511892536',
+            'content'  =>  array($this->randString(4)),
+            'template' =>  '74240'
         );
 
         $result = $this->sendMessage($info);
 
         if($result){
-            Cache::put('reg'.$info['phone'], $info['content'], 1);
+            Cache::put('reg_'.$info['phone'], $info['content'], 1);
             return response()->json(['code' => 200, 'info' => '验证发送成功']);
         }
 
@@ -47,11 +44,11 @@ class ToolsController extends Controller
      * @param $content
      * @return bool
      */
-    public function sendSMS($phone, $content)
+    public function sendSMS($phone, $content, $template)
     {
-        $result = PhpSms::make()->to($phone)->template('YunTongXun', '1')->data([$content, 4])->send();
+        $result = PhpSms::make()->to($phone)->template('YunTongXun', $template)->data($content)->send();
 
-        if($result){
+        if($result['success']){
             return true;
         }
         return false;
@@ -66,9 +63,12 @@ class ToolsController extends Controller
      */
     public function sendVoice($phone, $content)
     {
+        if(is_array($content)){
+            $content = $content[0];
+        }
         $result = PhpSms::voice($content)->to($phone)->send();
 
-        if($result){
+        if($result['success']){
             return true;
         }
         return false;
@@ -86,7 +86,7 @@ class ToolsController extends Controller
         //只希望使用内容方式发送,如云片,luosimao
         $result = PhpSms::make()->to($phone)->content($content)->send();
 
-        if($result){
+        if($result['success']){
             return true;
         }
 
@@ -101,9 +101,11 @@ class ToolsController extends Controller
      */
     public function sendMessage($info)
     {
+        PhpSms::queue(false);
+
         switch($info['method']){
             case 'sms':
-                return $this->sendSMS($info['phone'],$info['content']);
+                return $this->sendSMS($info['phone'],$info['content'], $info['template']);
 
             case 'voice':
                 return $this->sendVoice($info['phone'],$info['content']);
@@ -171,7 +173,7 @@ class ToolsController extends Controller
      * @param  $format 指定生成字符串的格式
      * @return String
      */
-    private function randString($len = 6, $format = 'ALL')
+    private function randString($len = 6, $format = 'NUMBER')
     {
         $str = "";
         switch ($format) {
