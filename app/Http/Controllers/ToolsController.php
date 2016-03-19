@@ -19,7 +19,8 @@ class ToolsController extends Controller
      */
     public function sendPhoneCode(Request $request)
     {
-        $result = PhpSms::make()->to($request->get('phone'))->template('YunTongXun', '1')->data(['lala', 4])->send();
+        //dd('I am here');
+        $result = PhpSms::make()->to($request->get('18301191705'))->template('YunTongXun', '1')->data(['lala', 4])->send();
         dd($result);
 
         $info = array(
