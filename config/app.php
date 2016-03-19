@@ -153,6 +153,7 @@ return [
         Toplan\Sms\SmsManagerServiceProvider::class, //短信服务
         Overtrue\LaravelSocialite\ServiceProvider::class,//第三方登录
         Overtrue\LaravelWechat\ServiceProvider::class, //微信开发包
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,//Log服务
     ],
 
     /*

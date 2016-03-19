@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', function () {
+    Log::info('Showing user profile for user: ');
     return view('welcome');
 });
 
@@ -45,6 +46,7 @@ Route::group(['prefix' => 'tool'], function()
 {
     Route::post('cpt_check','ToolsController@captchaCheck');
     Route::get('cpt','ToolsController@getCaptcha');
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 });
 
 Route::group(['prefix' => 'communicate'], function()
