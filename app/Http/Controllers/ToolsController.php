@@ -8,7 +8,6 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Mews\Captcha\Facades\Captcha;
 use Illuminate\Support\Facades\Cache;
-use \PhpSms;
 
 class ToolsController extends Controller
 {
@@ -46,7 +45,7 @@ class ToolsController extends Controller
      */
     public function sendSMS($phone, $content, $template)
     {
-        $result = PhpSms::make()->to($phone)->template('YunTongXun', $template)->data($content)->send();
+        $result = \PhpSms::make()->to($phone)->template('YunTongXun', $template)->data($content)->send();
 
         if($result['success']){
             return true;
@@ -66,7 +65,7 @@ class ToolsController extends Controller
         if(is_array($content)){
             $content = $content[0];
         }
-        $result = PhpSms::voice($content)->to($phone)->send();
+        $result = \PhpSms::voice($content)->to($phone)->send();
 
         if($result['success']){
             return true;
@@ -84,7 +83,7 @@ class ToolsController extends Controller
     public function sendNotify($phone, $content)
     {
         //只希望使用内容方式发送,如云片,luosimao
-        $result = PhpSms::make()->to($phone)->content($content)->send();
+        $result = \PhpSms::make()->to($phone)->content($content)->send();
 
         if($result['success']){
             return true;
@@ -101,7 +100,7 @@ class ToolsController extends Controller
      */
     public function sendMessage($info)
     {
-        PhpSms::queue(false);
+        \PhpSms::queue(false);
 
         switch($info['method']){
             case 'sms':
