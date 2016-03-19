@@ -25,11 +25,6 @@ class ThirdLoginController extends Controller
         //1 判断账号是否存在
             //true 登录并跳转到指定页
             //false
-
-
-
-
-
     }
     
     public function qqLogin()
