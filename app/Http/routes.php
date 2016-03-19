@@ -49,6 +49,12 @@ Route::group(['prefix' => 'system'], function()
     Route::get('/faker/{model}','SystemController@dataFaker');
 });
 
+Route::group(['prefix' => 'test'], function()
+{
+    Route::get('cache/{key}-{value}','TestController@getCache');
+
+});
+
 
 
 
