@@ -62,7 +62,7 @@ class PasswordController extends Controller
             return redirect('register')->withErrors('此号码尚未注册，请注册后登录');
         }
 
-        $key = 'reg_'.$phone;
+        $key = 'reset_'.$phone;
 
         if(!Cache::has($key)){
             back()->withErrors('验证码已失效');

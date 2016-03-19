@@ -1,6 +1,19 @@
 $(function(){
     var address = 'http://123.56.198.15/';
-    function regPhone(){
+    function sendMsg(){
+        $.ajax({
+            url: address+'/communicate/phone_code',
+            data: {
+                'phone':$('input[name=phone]').val(),
+                '_token':$('input[name=_token]').val(),
+                'todo': $('input[name=todo]').val()
+            },
+            success: function(data){
+                alert(data.info);
+            }
+        });
+    }
+    function getPhoneCode(){
         $.ajax({
             url: address+'/tool/cpt_check',
             type: "post",
@@ -10,16 +23,7 @@ $(function(){
             },
             success: function(data){
                 if(data.code == 200){
-                    $.ajax({
-                        url: address+'/tool/phone_code',
-                        data: {
-                            'phone':$('input[name=phone]').val(),
-                            '_token':$('input[name=_token]').val()
-                        },
-                        success: function(data){
-                            alert(data.info);
-                        }
-                    });
+                    sendMsg();
                 }else{
                     alert(data.info);
                 }
@@ -27,9 +31,8 @@ $(function(){
         });
     }
 
-
    $("#get_code").click(function(){
-        regPhone();
+       getPhoneCode();
     });
 
     //var map = new AMap.Map('map');   

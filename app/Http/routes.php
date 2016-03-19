@@ -34,8 +34,12 @@ Route::group(['prefix' => 'tool'], function()
 {
     Route::post('cpt_check','ToolsController@captchaCheck');
     Route::get('cpt','ToolsController@getCaptcha');
-    Route::get('phone_code','ToolsController@sendPhoneCode');
-    Route::post('message','ToolsController@sendMessageByRequest');
+});
+
+Route::group(['prefix' => 'communicate'], function()
+{
+    Route::get('phone_code','CommunicationController@sendPhoneCode');
+    Route::post('message','CommunicationController@sendMessageByRequest');
 });
 
 Route::group(['prefix' => 'system'], function()
