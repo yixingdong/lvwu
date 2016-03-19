@@ -26,7 +26,7 @@ class PhoneRegRequest extends Request
         return [
             'phone'       => 'required|min:9|max:15|unique:users',
             'password'    => 'required|min:6|max:24|confirmed',
-            'vcode'       => 'required'
+            'code'       => 'required'
         ];
     }
 }

@@ -80,13 +80,13 @@ class AuthController extends Controller
     {
         $key = 'reg_'.$request->get('phone');
 
-//        if(!Cache::has($key)){
-//            back()->withErrors('抱歉，验证码已过期');
-//        }
-//
-//        if($request->get('vcode') != Cache::get($key)){
-//            back()->withErrors('验证码不正确');
-//        }
+        if(!Cache::has($key)){
+            back()->withErrors('抱歉，验证码已过期');
+        }
+
+        if($request->get('code') != Cache::get($key)){
+            back()->withErrors('验证码不正确');
+        }
 
         $info = array_merge($request->all(),['active'=>true]);
         $user = $this->create($info);

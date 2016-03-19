@@ -44,7 +44,7 @@
           <div class="col-sm-8">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-              <input type="text" class="form-control" placeholder="输入手机验证码" name="vcode">
+              <input type="text" class="form-control" placeholder="输入手机验证码" name="code">
             </div>
           </div>
           <div class="col-sm-2">
