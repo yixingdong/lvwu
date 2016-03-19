@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Mews\Captcha\Facades\Captcha;
 use Illuminate\Support\Facades\Cache;
+use Toplan\PhpSms;
 
 class ToolsController extends Controller
 {
