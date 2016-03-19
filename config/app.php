@@ -149,7 +149,6 @@ return [
         Illuminate\Html\HtmlServiceProvider::class,//HTML FORM
         Intervention\Image\ImageServiceProvider::class,//Intervention 图像处理库
         Mews\Captcha\CaptchaServiceProvider::class, //图像验证码生成器
-        Overtrue\LaravelWechat\ServiceProvider::class, //微信第三方开发包
         Toplan\PhpSms\PhpSmsServiceProvider::class, //短信服务
         Toplan\Sms\SmsManagerServiceProvider::class //短信服务
     ],
@@ -206,7 +205,6 @@ return [
         'Form'      => Illuminate\Html\FormFacade::class,
         'Image'     => Intervention\Image\Facades\Image::class, //图片服务
         'Captcha'   => Mews\Captcha\Facades\Captcha::class, //图形验证码生成器
-        'Wechat'    => Overtrue\LaravelWechat\Facade::class, //微信第三方开发包
         'PhpSms'    => Toplan\PhpSms\Facades\Sms::class, //短信发送服务
         'SmsManager' => Toplan\Sms\Facades\SmsManager::class //短信管理服务
     ],
