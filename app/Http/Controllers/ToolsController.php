@@ -21,7 +21,7 @@ class ToolsController extends Controller
     {
         $info = array(
             'method'   =>  'sms',
-            'phone'    =>  '18511892536',
+            'phone'    =>  $request->get('phone'),
             'content'  =>  array($this->randString(4)),
             'template' =>  '74240'
         );
