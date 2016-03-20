@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="col-sm-2">             
-            <button type="button" class="btn btn-sm btn-danger" id="get_vcode">获取验证码</button>
+            <button type="button" class="btn btn-sm btn-danger" id="get_code">获取验证码</button>
           </div>
         </div>        
         <div class="box-footer">          
