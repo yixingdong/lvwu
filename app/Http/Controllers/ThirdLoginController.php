@@ -25,7 +25,7 @@ class ThirdLoginController extends Controller
         echo "I am WeChat provider callback handler";
         $wx_user = Socialite::driver('wechat')->user();
 
-        $user = User::where('wx_id',$wx_user['id'])->get();
+        $user = User::where('wx_id',$wx_user['id'])->first();
         if(is_object($user)){
             Auth::login($user);
             switch ($user->type){
