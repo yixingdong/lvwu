@@ -67,13 +67,13 @@ class PasswordController extends Controller
         $key = 'reset_'.$phone;
 
         if(!Cache::has($key)){
-            back()->withErrors('验证码已失效');
+            return back()->withErrors('验证码已失效');
         }
 
         $value = Cache::get($key);
 
-        if($request->get('v_code') != $value){
-            back()->withErrors('验证码不正确');
+        if($request->get('code') != $value){
+            return back()->withErrors('验证码不正确');
         }
 
         return redirect('reset/confirm')->with('phone',$phone);
