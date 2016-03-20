@@ -32,44 +32,54 @@ class AuthThirdController extends Controller
     {
         echo "I am WeChat provider callback handler";
         $wx_user = Socialite::driver('wechat')->user();
+        $this->bindWeChatAccount($wx_user);
 
-        $user = User::where('wx_id',$wx_user['id'])->first();
+    }
+
+
+    public function bindWeChatAccount($wx_info)
+    {
+        //1判断是否已经登录
+        if(Auth::check()){
+            $user = Auth::user();
+            //如果用户不是用微信登陆的，那就为其绑定微信号
+            if(!$user->wx_id){
+                $user->wx_id = $wx_info['id'];
+                $user->save();
+                return redirect('/')->withErrors('完成微信账号绑定');
+            }
+            return redirect('/')->withErrors('您已登录，无需重新扫码');
+        }
+        //2 没有登录
+        $user = User::where('wx_id',$wx_info['id'])->first();
+        //2.1 判断是否有此条记录，有则登录之
         if(is_object($user)){
             Auth::login($user);
             switch ($user->type){
                 case 'lawyer':
                 case 'assist':
-                    return redirect('lawyer/center');
+                    return redirect('/')->withErrors('欢迎'.$user->type.'使用我们的法律平台');
                 case 'client':
-                    return redirect('/');
+                    return redirect('/')->withErrors('欢迎咨询用户使用我们的服务');
                 default:
                     return redirect('/')->withErrors('你还没有注册具体类型');
-                    break;
             }
         }
+        //2.2 没有此条记录，创建账户
         $user = User::create([
-            'wx_id' => $wx_user['id']
+            'wx_id' => $wx_info['id']
         ]);
 
         Auth::login($user);
-        return redirect('/')->withErrors('登录成功');
+        return redirect('/')->withErrors('登录成功，您好没有注册具体类型');
     }
 
-    /**
-     * 微信服务器检测
-     *
-     * @param Server $server
-     * @return mixed
-     */
-    public function wxCheck(Server $server)
+    public function bindUserByWeChat()
     {
-        $server->on('message', function($message){
-            return "欢迎关注 overtrue！";
-        });
+        if(Auth::check()){
 
-        return $server->serve(); // 或者 return $server;
+        }
     }
-
 
     /**
      * QQ登录页面
@@ -114,5 +124,16 @@ class AuthThirdController extends Controller
         echo "I am WeiBo provider callback handler";
         $user = Socialite::driver('weibo')->user();
         dd($user);
+    }
+
+
+    public function bindWeiBoAccount()
+    {
+
+    }
+
+    public function bindQQAccount()
+    {
+
     }
 }
