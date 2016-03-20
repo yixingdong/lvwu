@@ -211,6 +211,6 @@ return [
         'PhpSms'    => Toplan\PhpSms\Facades\Sms::class, //短信发送服务
         'SmsManager' => Toplan\Sms\Facades\SmsManager::class, //短信管理服务
         'Socialite' => Overtrue\LaravelSocialite\Socialite::class,//第三方登录
-        'Wechat' => Overtrue\LaravelWechat\Facade::class, //微信开发包
+        'Wechat' => Overtrue\LaravelWechat\Facade::class, //微信开发包        
     ],
 ];
