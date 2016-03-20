@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Auth;
 
 class PasswordController extends Controller
 {
@@ -64,17 +65,17 @@ class PasswordController extends Controller
             return redirect('register')->withErrors('此号码尚未注册，请注册后登录');
         }
 
-        $key = 'reset_'.$phone;
-
-        if(!Cache::has($key)){
-            return back()->withErrors('验证码已失效');
-        }
-
-        $value = Cache::get($key);
-
-        if($request->get('code') != $value){
-            return back()->withErrors('验证码不正确');
-        }
+//        $key = 'reset_'.$phone;
+//
+//        if(!Cache::has($key)){
+//            return back()->withErrors('验证码已失效');
+//        }
+//
+//        $value = Cache::get($key);
+//
+//        if($request->get('code') != $value){
+//            return back()->withErrors('验证码不正确');
+//        }
 
         return redirect('reset/confirm')->with('phone',$phone);
     }
@@ -91,6 +92,7 @@ class PasswordController extends Controller
 
     /**
      * 提交新密码并设置（手机号码方式）
+     *
      * @return mixed
      */
     public function postPhoneResetConfirm(PhoneConfirmRequest $request)
@@ -100,12 +102,13 @@ class PasswordController extends Controller
         $user = User::where('phone', $phone)->first();
 
         $user->password = bcrypt($request->get('password'));
+
         if(!$user->save()){
-            back()->withErrors('修改失败，请重试');
+            return back()->withErrors('密码修改失败，请重试');
         }
         Auth::login($user);
-        return redirect('login')->withErrors('密码修改成功，请登录!');
 
+        return redirect('/')->withErrors('密码修改成功，已为您登录网站!');
     }
 
     /**

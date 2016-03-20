@@ -82,16 +82,16 @@ class AuthController extends Controller
     {
         $key = 'reg_'.$request->get('phone');
 
-        if(!Cache::has($key)){
-            return back()->withErrors('抱歉，验证码已过期');
-        }
-
-        $value = Cache::get($key);
-        Cache::forget($key);
-
-        if($request->get('code') != $value){
-            return back()->withErrors('验证码不正确');
-        }
+//        if(!Cache::has($key)){
+//            return back()->withErrors('抱歉，验证码已过期');
+//        }
+//
+//        $value = Cache::get($key);
+//        Cache::forget($key);
+//
+//        if($request->get('code') != $value){
+//            return back()->withErrors('验证码不正确');
+//        }
 
         $info = array_merge($request->all(),['active'=>true]);
         $user = $this->create($info);
