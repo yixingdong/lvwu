@@ -87,10 +87,6 @@ class AuthController extends Controller
         }
         $value = Cache::get($key);
 
-        if(is_array($value)){
-            $value = $value[0];
-        }
-
         Log::info($key.'~'.$value);
 
         if($request->get('code') != $value){
