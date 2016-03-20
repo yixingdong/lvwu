@@ -37,6 +37,9 @@ Route::group(['prefix' => 'third'], function(){
     Route::get('/qq/callback','AuthThirdController@qqCallback');
     Route::get('/wb/login','AuthThirdController@wbLogin');
     Route::get('/wb/callback','AuthThirdController@wbCallback');
+
+    Route::get('bind','AuthThirdController@getBindUser');
+    Route::post('bind','AuthThirdController@postBindUser');
 });
 
 Route::group(['prefix' => 'tool'], function(){

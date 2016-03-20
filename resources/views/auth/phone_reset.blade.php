@@ -1,6 +1,6 @@
 @extends('base.master')
 @section('content')
-<div class="box box-info" style="border:solid green 1px;">
+<div class="box box-info" style="border:solid #cccccc 1px;">
     <div class="box box-widget widget-user" style="margin-bottom:30px;">        
         <div class="widget-user-header bg-aqua-active">
           <h3 class="widget-user-username">你又把我给忘了...</h3>

@@ -37,7 +37,7 @@ class AuthThirdController extends Controller
     }
 
 
-    public function bindWeChatAccount($wx_info)
+    public function UserBindWeChatAccount($wx_info)
     {
         echo 'I am in Bind Function';
         //1判断是否已经登录
@@ -90,11 +90,30 @@ class AuthThirdController extends Controller
         }
     }
 
-    public function bindUserByWeChat()
+    public function getBindUser()
     {
-        if(Auth::check()){
+        return view('thirds.bind_user');
+    }
 
+    public function postBindUser(Request $request)
+    {
+        $phone = $request->get('phone');
+        $password = $request->get('password');
+
+        $user = User::where('phone',$phone)->first();
+        if($user && $user->password == bcrypt($password)){
+            $cur_user = Auth::user();
+            $wx_id = $cur_user->wx_id;
+
+            $cur_user->delete();
+
+            $user->wx_id = $wx_id;
+            $user->save();
+
+            Auth::login($user);
+            return redirect('/')->withErrors('您已成功绑定了指定账号');
         }
+        return back()->withErrors('账号密码有误，没能完成绑定');
     }
 
     /**
@@ -110,7 +129,7 @@ class AuthThirdController extends Controller
     }
 
     /**
-     * QQ登录回调处理     *
+     * QQ登录回调处理  
      *
      */
     public function qqCallback()
