@@ -33,14 +33,16 @@ class AuthThirdController extends Controller
     {
         echo "I am WeChat provider callback handler";
         $wx_user = Socialite::driver('wechat')->user();
-        $this->bindWeChatAccount($wx_user);
+        return $this->bindWeChatAccount($wx_user);
     }
 
 
     public function bindWeChatAccount($wx_info)
     {
+        echo 'I am in Bind Function';
         //1判断是否已经登录
         if(Auth::check()){
+            echo 'I am already logged in';
             $user = Auth::user();
             //如果用户不是用微信登陆的，那就为其绑定微信号
             if(!$user->wx_id){
