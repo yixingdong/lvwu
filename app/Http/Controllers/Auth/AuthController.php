@@ -86,8 +86,8 @@ class AuthController extends Controller
             back()->withErrors('抱歉，验证码已过期');
         }
         $value = Cache::get($key);
-        dd($value);
-        if($request->get('code') != Cache::get($key)){
+
+        if($request->get('code') != $value[0]){
             back()->withErrors('验证码不正确');
         }
 
