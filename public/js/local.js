@@ -1,5 +1,5 @@
 $(function(){
-    var address = 'http://182.92.162.175/';
+    var address = 'http://182.92.162.175';
     function sendMsg(){
         $.ajax({
             url: address+'/communicate/phone_code',
