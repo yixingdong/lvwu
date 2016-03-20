@@ -10,12 +10,16 @@ use Illuminate\Support\Facades\Cache;
 
 class TestController extends Controller
 {
-    public function getCache($key,$value)
+    public function putValue($key,$value)
     {
-        Cache::put($key,$value,2);
+        Cache::add($key,$value,2);        
 
-        $value2 =  Cache::get($key);
-        dd($key.'~'.$value2);
+    }
 
+    public function getValue($key){
+        if(Cache::has($key)){
+            dd(Cache::get($key));
+        }
+        dd($key.'~已失效');
     }
 }

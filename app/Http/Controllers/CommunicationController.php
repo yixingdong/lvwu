@@ -51,8 +51,8 @@ class CommunicationController extends Controller
         if($result){
             switch ($info['todo']){
                 case 'reg':
-                case 'reset':
-                    Cache::add($info['todo'].'_'.$info['phone'], $info['content'], 2);
+                case 'reset':                    
+                    Cache::add($info['todo'].'_'.$info['phone'], $info['content'][0], 2);
                     return response()->json(['code' => 200, 'info' => '验证发送成功']);
                 default:
                     break;

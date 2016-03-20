@@ -64,7 +64,8 @@ Route::group(['prefix' => 'system'], function(){
 });
 
 Route::group(['prefix' => 'test'], function(){
-    Route::get('cache/{key}-{value}','TestController@getCache');
+    Route::get('put/{key}-{value}','TestController@putValue');
+    Route::get('get/{key}','TestController@getValue');
 
 });
 
