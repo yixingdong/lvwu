@@ -32,9 +32,7 @@ class AuthThirdController extends Controller
     {
         echo "I am WeChat provider callback handler";
         $wx_user = Socialite::driver('wechat')->user();
-        dd($wx_user);
         $this->bindWeChatAccount($wx_user);
-
     }
 
 
