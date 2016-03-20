@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\DB;
+use App\User;
+use Illuminate\Support\Facades\Cache;
 
 class PasswordController extends Controller
 {
