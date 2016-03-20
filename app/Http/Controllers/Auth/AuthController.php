@@ -87,16 +87,22 @@ class AuthController extends Controller
         }
         $value = Cache::get($key);
 
-        if($request->get('code') != $value[0]){
-            back()->withErrors('验证码不正确');
+        if(is_array($value)){
+            $value = $value[0];
         }
 
+        Log::info($key.'~'.$value);
+
+        if($request->get('code') != $value){
+            return back()->withErrors('验证码不正确');
+        }
+        Cache::forget($key);
         $info = array_merge($request->all(),['active'=>true]);
         $user = $this->create($info);
 
         if(is_object($user)){
             Auth::login($user);
-            return redirect('/');
+            return redirect('/')->withErrors('恭喜您已经完成了注册');
         }
     }
 
