@@ -25,7 +25,7 @@ class PhoneResetRequest extends Request
     {
         return [
             'phone'       => 'required|min:9|max:15',
-            'vcode'       => 'required'
+            'code'       => 'required'
         ];
     }
 }
