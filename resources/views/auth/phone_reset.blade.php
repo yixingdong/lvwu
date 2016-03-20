@@ -12,6 +12,7 @@
     <!-- form start -->
     <form class="form-horizontal" method="POST" action="{{URL('reset')}}">
       {!! csrf_field() !!}
+        <input type="hidden" name="todo" value="reset">
       <div class="box-body">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-phone"></i></span>

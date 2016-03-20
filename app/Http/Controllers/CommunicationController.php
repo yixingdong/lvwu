@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Toplan\PhpSms;
+use Illuminate\Support\Facades\Cache;
 
 class CommunicationController extends Controller
 {
@@ -22,7 +23,7 @@ class CommunicationController extends Controller
         $info = array(
             'method'=> 'sms', //目前写死为sms
             'phone' => $request->get('phone'),
-            'todo'  => $request->get('todo')
+            'todo'  => $request->get('phone')
         );
 
         switch ($info['todo']){

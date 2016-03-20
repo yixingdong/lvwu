@@ -12,7 +12,7 @@
     <!-- form start -->
     <form class="form-horizontal" method="POST" action="{{URL('/register')}}">
       {!! csrf_field() !!}
-      <input type="hidden" name="type" value="reg">
+      <input type="hidden" name="todo" value="reg">
       <div class="box-body">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-phone"></i></span>
