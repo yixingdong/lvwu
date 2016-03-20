@@ -56,22 +56,6 @@ class ThirdLoginController extends Controller
         return $server->serve(); // 或者 return $server;
     }
 
-    public function isUserExist($wx_id)
-    {
-        $user = User::where('wx_id',$wx_id)->first();
-        if(is_object($user)){
-            Auth::login($user);
-            return redirect('/');
-        }
-        $user = User::create([
-            'wx_id'=>$wx_id
-        ]);
-        Auth::login($user);
-        return redirect('/user/profile/create');
-        //1 判断账号是否存在
-        //true 登录并跳转到指定页
-        //false
-    }
 
     public function qqLogin()
     {
