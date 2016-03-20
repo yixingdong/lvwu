@@ -2,24 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use \Socialite;
+use Illuminate\Support\Facades\Auth;
 
 
-class ThirdLoginController extends Controller
+class AuthThirdController extends Controller
 {
-
+    /**
+     * 微信登陆页面
+     *
+     * @return mixed
+     */
     public function wxLogin()
     {
         echo 'I am going to WeiChat Login page';
         return  Socialite::driver('wechat')->redirect();
     }
 
+    /**
+     * 微信登陆回调处理
+     *
+     * @return mixed
+     */
     public function wxCallback()
     {
         echo "I am WeChat provider callback handler";
@@ -47,6 +55,12 @@ class ThirdLoginController extends Controller
         return redirect('/')->withErrors('登录成功');
     }
 
+    /**
+     * 微信服务器检测
+     *
+     * @param Server $server
+     * @return mixed
+     */
     public function wxCheck(Server $server)
     {
         $server->on('message', function($message){
@@ -57,6 +71,11 @@ class ThirdLoginController extends Controller
     }
 
 
+    /**
+     * QQ登录页面
+     *
+     * @return mixed
+     */
     public function qqLogin()
     {
         echo 'I am going to QQ Login Page';
@@ -64,6 +83,10 @@ class ThirdLoginController extends Controller
 
     }
 
+    /**
+     * QQ登录回调处理     *
+     *
+     */
     public function qqCallback()
     {
         echo "I am qq provider callback handler";
@@ -71,12 +94,21 @@ class ThirdLoginController extends Controller
         dd($user);
     }
 
+    /**
+     * 微博登录页面
+     *
+     * @return mixed
+     */
     public function wbLogin()
     {
         echo 'I am going to WeiBo Login page';
         return  Socialite::driver('weibo')->redirect();
     }
 
+    /**
+     * 微博登录回调
+     *
+     */
     public function wbCallback()
     {
         echo "I am WeiBo provider callback handler";

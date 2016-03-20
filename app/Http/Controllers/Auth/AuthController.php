@@ -225,4 +225,10 @@ class AuthController extends Controller
             });
         }
     }
+
+    public function selectRegType()
+    {
+        return view('auth.select_type');
+    }   
+
 }
