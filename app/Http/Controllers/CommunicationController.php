@@ -23,7 +23,7 @@ class CommunicationController extends Controller
         $info = array(
             'method'=> 'sms', //目前写死为sms
             'phone' => $request->get('phone'),
-            'todo'  => $request->get('phone')
+            'todo'  => $request->get('todo')
         );
 
         switch ($info['todo']){
