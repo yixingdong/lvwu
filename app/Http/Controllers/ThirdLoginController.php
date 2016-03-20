@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -22,8 +23,28 @@ class ThirdLoginController extends Controller
     public function wxCallback()
     {
         echo "I am WeChat provider callback handler";
-        $user = Socialite::driver('wechat')->user();
-        dd($user['id']);
+        $wx_user = Socialite::driver('wechat')->user();
+
+        $user = User::where('wx_id',$wx_user['id'])->get();
+        if(is_object($user)){
+            Auth::login($user);
+            switch ($user->type){
+                case 'lawyer':
+                case 'assist':
+                    return redirect('lawyer/center');
+                case 'client':
+                    return redirect('/');
+                default:
+                    return redirect('/')->withErrors('你还没有注册具体类型');
+                    break;
+            }
+        }
+        $user = User::create([
+            'wx_id' => $wx_user['id']
+        ]);
+
+        Auth::login($user);
+        return redirect('/')->withErrors('登录成功');
     }
 
     public function wxCheck(Server $server)
