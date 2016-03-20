@@ -55,6 +55,6 @@ return [
     'wechat' => [
         'client_id'     => 'wxc9512ee29f35dbe1',
         'client_secret' => 'bcd8f9aab70b6b8ce365cfb1d764736d',
-        'redirect'      => 'http://www.exingdong.com/callback',
+        'redirect'      => 'http://www.exingdong.com/test/wx/callback',
     ],
 ];
