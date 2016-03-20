@@ -32,8 +32,13 @@ class AuthThirdController extends Controller
     public function wxCallback()
     {
         echo "I am WeChat provider callback handler";
-        $wx_user = Socialite::driver('wechat')->user();
-        return $this->bindWeChatAccount($wx_user);
+        try{
+            $wx_user = Socialite::driver('wechat')->user();
+        }catch (Exception $e){
+            dd($e->getMessage());
+        }
+
+        return $this->UserBindWeChatAccount($wx_user);
     }
 
 
@@ -129,7 +134,7 @@ class AuthThirdController extends Controller
     }
 
     /**
-     * QQ登录回调处理  
+     * QQ登录回调处理
      *
      */
     public function qqCallback()
