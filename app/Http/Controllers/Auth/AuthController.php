@@ -127,7 +127,7 @@ class AuthController extends Controller
         if(Auth::attempt(['phone'=>$phone,'password'=>$pwd])){
             return redirect('/');
         }
-        back()->withErrors('账号密码有误');
+        return back()->withErrors('账号密码有误');
     }
 
 
@@ -181,14 +181,11 @@ class AuthController extends Controller
         $info = array_merge($request->all(),['active'=>false]);
         $user = $this->create($info);
 
-
         if(is_object($user)){
             $this->sendActivatedMail($user);
             return redirect('/')->withErrors('恭喜您注册成功!请到您邮箱进行激活');
         }
-
-        back()->withErrors('注册失败，请再试一次');
-
+        return back()->withErrors('注册失败，请再试一次');
     }
 
     public function getActiveEmail($token = null)
