@@ -72,10 +72,9 @@ class AuthWeChatController extends Controller
             $user = User::create([
                 'wx_id' => $wx_info['id'],
                 'type'  => 'undefined'
-
             ]);
         }
-        dd($user);
+
         Auth::login($user);
 
         switch ($user->type){
