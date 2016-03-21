@@ -31,13 +31,13 @@ Route::get('reset/email/{token}', 'Auth\PasswordController@getEmailReset');
 Route::post('reset/email/confirmed', 'Auth\PasswordController@postEmailReset');
 
 Route::group(['prefix' => 'thirds'], function(){
-    Route::get('/wx/login','AuthThirdsController@wxLogin');
-    Route::any('/wx/callback','AuthThirdsController@wxCallback');
-    Route::get('/wx/check','AuthThirdsController@wxCheck');
-    Route::get('/qq/login','AuthThirdsController@qqLogin');
-    Route::get('/qq/callback','AuthThirdsController@qqCallback');
-    Route::get('/wb/login','AuthThirdsController@wbLogin');
-    Route::get('/wb/callback','AuthThirdsController@wbCallback');
+    Route::get('wx/login','AuthThirdsController@wxLogin');
+    Route::any('wx/callback','AuthThirdsController@wxCallback');
+    Route::get('wx/check','AuthThirdsController@wxCheck');
+    Route::get('qq/login','AuthThirdsController@qqLogin');
+    Route::get('qq/callback','AuthThirdsController@qqCallback');
+    Route::get('wb/login','AuthThirdsController@wbLogin');
+    Route::get('wb/callback','AuthThirdsController@wbCallback');
 
     Route::get('chose','AuthThirdsController@getChoseType');
     Route::post('chose','AuthThirdsController@postChoseType');
@@ -48,9 +48,9 @@ Route::group(['prefix' => 'thirds'], function(){
 });
 
 Route::group(['prefix' => 'wx'], function() {
-    Route::get('/wx/login','AuthWeChatController@wxLogin');
-    Route::any('/wx/callback','AuthWeChatController@wxCallback');
-    Route::get('/wx/check','AuthWeChatController@wxCheck');
+    Route::get('login','AuthWeChatController@wxLogin');
+    Route::any('callback','AuthWeChatController@wxCallback');
+    Route::get('check','AuthWeChatController@wxCheck');
 });
 
 
