@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Socialite;
+use Overtrue\LaravelSocialite\Socialite;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
