@@ -29,7 +29,7 @@ class AuthThirdsController extends Controller
     public function wxLogin()
     {
         echo 'I am going to WeiChat Login page';
-        return  \Socialite::driver('wechat')->redirect();
+        return  Socialite::driver('wechat')->redirect();
     }
 
     /**
@@ -40,6 +40,7 @@ class AuthThirdsController extends Controller
     public function wxCallback()
     {
         echo "I am WeChat provider callback handler";
+        dd(Socialite::driver('wechat'));
         $wx_user = Socialite::driver('wechat')->user();
 //        try{
 //            $wx_user = Socialite::driver('wechat')->user();
