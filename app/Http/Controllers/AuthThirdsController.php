@@ -6,13 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Overtrue\LaravelSocialite\Socialite;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
-
 class AuthThirdsController extends Controller
 {
+    public function wxCheck(Server $server)
+    {
+        $server->on('message', function($message){
+            return "欢迎关注 overtrue！";
+        });
+
+        return $server->serve(); // 或者 return $server;
+    }
+
     /**
      * 微信登陆页面
      *
