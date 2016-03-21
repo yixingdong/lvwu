@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0a29c3ea-39ac-4d3a-965b-aaa86e0fdac2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" />
     </list>
     <ignored path="base.iws" />
@@ -71,8 +70,18 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/overtrue/socialite/src/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2174">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="287">
+              <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractProvider.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/overtrue/socialite/src/Providers/AbstractProvider.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="218" column="11" selection-start-line="218" selection-start-column="11" selection-end-line="218" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -81,8 +90,8 @@
       <file leaf-file-name="AuthWeChatController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
+            <state relative-caret-position="184">
+              <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -108,7 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/base/area/header.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/email_regist.blade.php" />
@@ -158,6 +166,7 @@
         <option value="$PROJECT_DIR$/config/services.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" />
+        <option value="$PROJECT_DIR$/vendor/overtrue/socialite/src/Providers/AbstractProvider.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" />
       </list>
     </option>
@@ -177,8 +186,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="305" />
-    <option name="y" value="86" />
+    <option name="x" value="1034" />
+    <option name="y" value="48" />
     <option name="width" value="2572" />
     <option name="height" value="1056" />
   </component>
@@ -829,15 +838,15 @@
       <workItem from="1458485502974" duration="1763000" />
       <workItem from="1458520702194" duration="15250000" />
       <workItem from="1458546656610" duration="191000" />
-      <workItem from="1458547688574" duration="5353000" />
+      <workItem from="1458547688574" duration="6084000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72217000" />
+    <option name="totallyTimeSpent" value="72948000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="305" y="86" width="2572" height="1056" extended-state="0" />
+    <frame x="1034" y="48" width="2572" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -878,13 +887,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/base/admin.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1212,14 +1214,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/overtrue/socialite/src/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2174">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -1230,10 +1224,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/overtrue/socialite/src/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/overtrue/socialite/src/Providers/AbstractProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="218" column="11" selection-start-line="218" selection-start-column="11" selection-end-line="218" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
+        <state relative-caret-position="184">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>
