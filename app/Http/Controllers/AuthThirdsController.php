@@ -42,6 +42,7 @@ class AuthThirdsController extends Controller
         echo "I am WeChat provider callback handler";
         dd(Socialite::driver('wechat'));
         $wx_user = Socialite::driver('wechat')->user();
+
 //        try{
 //            $wx_user = Socialite::driver('wechat')->user();
 //        }catch (Exception $e){
