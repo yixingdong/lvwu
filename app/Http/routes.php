@@ -47,6 +47,11 @@ Route::group(['prefix' => 'thirds'], function(){
     Route::post('new','AuthThirdsController@postBindNewUser');
 });
 
+Route::group(['prefix' => 'wx'], function() {
+    Route::get('/wx/login','AuthWeChatController@wxLogin');
+    Route::any('/wx/callback','AuthWeChatController@wxCallback');
+    Route::get('/wx/check','AuthWeChatController@wxCheck');
+});
 
 
 Route::group(['prefix' => 'tool'], function(){
