@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Socialite;
 
 class AuthThirdsController extends Controller
 {
@@ -28,7 +29,7 @@ class AuthThirdsController extends Controller
     public function wxLogin()
     {
         echo 'I am going to WeiChat Login page';
-        return  Socialite::driver('wechat')->redirect();
+        return  \Socialite::driver('wechat')->redirect();
     }
 
     /**
