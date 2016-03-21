@@ -75,7 +75,7 @@ class AuthWeChatController extends Controller
 
             ]);
         }
-
+        dd($user);
         Auth::login($user);
 
         switch ($user->type){
