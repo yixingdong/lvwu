@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use \Socialite;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\Log;
 
 
 class AuthWeChatController extends Controller
