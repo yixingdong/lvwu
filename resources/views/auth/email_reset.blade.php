@@ -33,5 +33,4 @@
 @stop
 @section('script')
 <script src="{{URL::asset('/')}}js/app.min.js"></script>
-<script type="text/javascript" src="{{URL::asset('/')}}js/local.js"></script>
 @stop

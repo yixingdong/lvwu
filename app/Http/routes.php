@@ -30,7 +30,7 @@ Route::post('reset/email', 'Auth\PasswordController@postEmail');
 Route::get('reset/email/{token}', 'Auth\PasswordController@getEmailReset');
 Route::post('reset/email/confirmed', 'Auth\PasswordController@postEmailReset');
 
-Route::group(['prefix' => 'third'], function(){
+Route::group(['prefix' => 'thirds'], function(){
     Route::get('/wx/login','AuthThirdController@wxLogin');
     Route::get('/wx/callback','AuthThirdController@wxCallback');
     Route::get('/qq/login','AuthThirdController@qqLogin');
@@ -38,8 +38,12 @@ Route::group(['prefix' => 'third'], function(){
     Route::get('/wb/login','AuthThirdController@wbLogin');
     Route::get('/wb/callback','AuthThirdController@wbCallback');
 
-    Route::get('bind','AuthThirdController@getBindUser');
-    Route::post('bind','AuthThirdController@postBindUser');
+    Route::get('chose','AuthThirdController@getChoseType');
+    Route::post('chose','AuthThirdController@postChoseType');
+    Route::get('bind','AuthThirdController@getBindExistUser');
+    Route::post('bind','AuthThirdController@postBindExistUser');
+    Route::get('new','AuthThirdController@getBindNewUser');
+    Route::post('new','AuthThirdController@postBindNewUser');
 });
 
 Route::group(['prefix' => 'tool'], function(){
@@ -53,20 +57,9 @@ Route::group(['prefix' => 'communicate'], function(){
     Route::post('message','CommunicationController@sendMessageByRequest');
 });
 
-Route::group(['prefix' => 'system'], function(){
-    Route::get('/','SystemController@index');
-    Route::get('/info','SystemController@phpInfo');
-    Route::get('/clear','SystemController@dbClear');
-    Route::get('/backup','SystemController@dbBackup');
-    Route::get('/recovery','SystemController@dbRecovery');
-    Route::get('/maker/{model}','SystemController@mcMaker');
-    Route::get('/faker/{model}','SystemController@dataFaker');
-});
-
 Route::group(['prefix' => 'test'], function(){
     Route::get('put/{key}-{value}','TestController@putValue');
     Route::get('get/{key}','TestController@getValue');
-
 });
 
 
