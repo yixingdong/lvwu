@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0a29c3ea-39ac-4d3a-965b-aaa86e0fdac2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
     </list>
     <ignored path="base.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,6 +77,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="VerifyCsrfToken.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AbstractProvider.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/overtrue/socialite/src/Providers/AbstractProvider.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthWeChatController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AuthWeChatController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="345">
+              <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -159,7 +169,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthSinaWbController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthQQController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthThirdController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/config/session.php" />
@@ -168,6 +177,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" />
         <option value="$PROJECT_DIR$/vendor/overtrue/socialite/src/Providers/AbstractProvider.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
       </list>
     </option>
   </component>
@@ -838,12 +848,12 @@
       <workItem from="1458485502974" duration="1763000" />
       <workItem from="1458520702194" duration="15250000" />
       <workItem from="1458546656610" duration="191000" />
-      <workItem from="1458547688574" duration="7629000" />
+      <workItem from="1458547688574" duration="7816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74493000" />
+    <option name="totallyTimeSpent" value="74680000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="793" y="39" width="2572" height="1056" extended-state="0" />
@@ -1118,14 +1128,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -1242,11 +1244,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
