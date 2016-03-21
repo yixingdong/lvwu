@@ -32,6 +32,7 @@ class AuthWeChatController extends Controller
     public function wxCallback()
     {
         echo "I am WeChat provider callback handler";
+        dd(Socialite::driver('wechat')->stateless());
         try{
             $wx_user = Socialite::driver('wechat')->user();
         }catch (Exception $e){
