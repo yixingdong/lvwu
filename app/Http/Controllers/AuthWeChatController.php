@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 
 
-class AuthThirdController extends Controller
+class AuthWeChatController extends Controller
 {
     /**
      * 微信登陆页面
