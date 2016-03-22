@@ -21,6 +21,18 @@
         <br/>
         <div class="form-group">
           <div class="col-sm-8">
+              <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                  <input type="text" class="form-control" placeholder="输入图形验证码" name="cpt">
+              </div>
+          </div>
+          <div class="col-sm-2">
+              <img src="{{ url('tool/cpt') }}" onclick="this.src='{{ url('tool/cpt')}}?r='+Math.random();" alt="">
+          </div>
+        </div>
+        <br/>
+        <div class="form-group">
+          <div class="col-sm-8">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
               <input type="text" class="form-control" placeholder="输入验证码" name="code">
