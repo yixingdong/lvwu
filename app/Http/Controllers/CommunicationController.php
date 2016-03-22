@@ -29,7 +29,7 @@ class CommunicationController extends Controller
         switch ($info['todo']){
             case 'reg':
             case 'reset':
-                $info['template'] = '47639';
+                $info['template'] = '74240';
                 $info['content'] = array($this->randString(4));
                 break;
             case 'notify_lawyer':
