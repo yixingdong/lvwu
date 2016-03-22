@@ -137,10 +137,8 @@ class AuthThirdsController extends Controller
             case 'client':
                 echo $type;
                 $user = $request->user();
-                if(!isset($user->type)){
-                    $user->type = $type;
-                    $user->save();
-                }
+                $user->type = $type;
+                $user->save();             
                 if(!isset($user->phone)){
                     return redirect('thirds/new');
                 }
