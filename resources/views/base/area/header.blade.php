@@ -131,12 +131,12 @@
                             @endif
                             @if(is_null(Auth::user()->email))
                             <div class="col-xs-4 col-xs-offset-3">
-                                <a class="btn  btn-warning" href="#">绑定邮箱</a>
+                                <a class="btn btn-warning" href="#">绑定邮箱</a>
                             </div>
                             @endif
                             @if(is_null(Auth::user()->phone))
-                            <div class="col-xs-4 text-center">
-                                <a class="btn  btn-warning" href="{{url('thirds/chose')}}">绑定手机</a>
+                            <div class="col-xs-4 text-center col-xs-offset-3">
+                                <a class="btn btn-warning" href="{{url('thirds/chose')}}">绑定手机</a>
                             </div>
                             @endif
                         </li>
