@@ -33,8 +33,8 @@ Route::get('reset/email/{token}', 'Auth\PasswordController@getEmailReset');
 Route::post('reset/email/confirmed', 'Auth\PasswordController@postEmailReset');
 
 Route::group(['prefix' => 'thirds'], function(){
-    Route::get('chose','AuthThirdsController@getChoseType');
-    Route::post('chose','AuthThirdsController@postChoseType');
+    Route::get('chose','AuthThirdsController@getChoseRole');
+    Route::post('chose','AuthThirdsController@postChoseRole');
     Route::get('bind','AuthThirdsController@getBindExistUser');
     Route::post('bind','AuthThirdsController@postBindExistUser');
     Route::get('new','AuthThirdsController@getBindNewUser');
