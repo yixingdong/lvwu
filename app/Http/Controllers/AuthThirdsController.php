@@ -171,12 +171,12 @@ class AuthThirdsController extends Controller
         $user->password = bcrypt($request->get('password'));
         switch ($user->type){
             case 'lawyer':
-                return redirect();
+                return redirect('/');
             case 'client':
                 $user->active = true;
-                return redirect()->withErrors('尊敬的咨询用户，您的账户已激活');
+                return redirect('/')->withErrors('尊敬的咨询用户，您的账户已激活');
             default:
-                return redirect()->withErrors('您的信息已被记录，恶意攻击将被记录在案');
+                return redirect('/')->withErrors('您的信息已被记录，恶意攻击将被记录在案');
         }
 
         Auth::login($user);
