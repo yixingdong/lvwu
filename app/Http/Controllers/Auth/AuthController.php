@@ -253,7 +253,7 @@ class AuthController extends Controller
         return view('auth.email_bind');
     }
 
-    public function postBindEmail(EmailBindRequest $request)
+    public function postBindEmail(Request $request)
     {
         $user = $request->user();
         $user->email = $request->get('mail');
