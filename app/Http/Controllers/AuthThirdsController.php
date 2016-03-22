@@ -41,7 +41,7 @@ class AuthThirdsController extends Controller
         $user = User::where('wx_id',$wx_info['id'])->first();
 
         // 如果用户是不是已注册用户，需要创建新用户
-        if(is_null($user)){
+        if(!$user){
             $user = User::create([
                 'wx_id' => $wx_info['id'],
                 'type'  => 'undefined',
@@ -50,7 +50,6 @@ class AuthThirdsController extends Controller
         }
 
         Auth::login($user);
-
 
         switch ($user->type){
             case 'lawyer':
@@ -129,7 +128,7 @@ class AuthThirdsController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function postChoseType(Requests\ChoseUserTypeRequest $request)
+    public function postChoseType(Requests\ChoseUserRoleRequest $request)
     {
         $type = $request->get('role');
         switch($type){
@@ -140,7 +139,7 @@ class AuthThirdsController extends Controller
                 $user->save();
                 return redirect('thirds/new');
             default:
-                return redirect('/')->withError('您的信息已被记录，恶意攻击将被记录在案');
+                return redirect('/')->withError('抱歉,此为无效用户类型');
         }
     }
 
@@ -168,7 +167,7 @@ class AuthThirdsController extends Controller
         switch ($user->type){
             case 'lawyer':
                 $user->save();
-                return redirect('/');
+                return redirect('/auth/profile');
             case 'client':
                 $user->active = true;
                 $user->save();

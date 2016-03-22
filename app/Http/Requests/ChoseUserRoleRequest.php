@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ChoseUserTypeRequest extends Request
+class ChoseUserRoleRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

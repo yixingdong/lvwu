@@ -15,7 +15,9 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 
 
 /***************	Begin 用户注册及密码重置	**************/
-Route::get('register', 'Auth\AuthController@getPhoneRegister');
+Route::get('chose', 'Auth\AuthController@getChoseRegRole');
+Route::post('chose', 'Auth\AuthController@postChoseRegRole');
+Route::get('register/{role}', 'Auth\AuthController@getPhoneRegister');
 Route::post('register', 'Auth\AuthController@postPhoneRegister');
 Route::get('reset', 'Auth\PasswordController@getPhoneReset');
 Route::post('reset', 'Auth\PasswordController@postPhoneReset');

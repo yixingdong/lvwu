@@ -124,15 +124,21 @@
                         </li>
                         <!-- Menu Body -->
                         <li class="user-body">
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Followers</a>
+                            @if(is_null(Auth::user()->wx_id))
+                            <div class="col-xs-4">
+                                <a class="btn btn-warning" href="{{url('wx/login')}}">绑定微信</a>
                             </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Sales</a>
+                            @endif
+                            @if(is_null(Auth::user()->email))
+                            <div class="col-xs-4 col-xs-offset-3">
+                                <a class="btn  btn-warning" href="#">绑定邮箱</a>
                             </div>
+                            @endif
+                            @if(is_null(Auth::user()->phone))
                             <div class="col-xs-4 text-center">
-                                <a href="#">Friends</a>
+                                <a href="{{url('thirds/chose')}}">绑定手机</a>
                             </div>
+                            @endif
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
@@ -140,14 +146,14 @@
                                 <a href="#" class="btn btn-default btn-flat">档案</a>
                             </div>
                             <div class="pull-right">
-                                <a href="/logout" class="btn btn-default btn-flat">登出</a>
+                                <a href="{{URL('/logout')}}" class="btn btn-default btn-flat">登出</a>
                             </div>
                         </li>
                     </ul>
                 </li>
                 @else
-                    <li><a href="/register">注册</a></li>
-                    <li><a href="/login">登陆</a></li>
+                    <li><a href="{{URL('/chose')}}">注册</a></li>
+                    <li><a href={{URL('/login')}}>登陆</a></li>
                 @endif
             </ul>
         </div>

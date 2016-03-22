@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\ChoseUserRoleRequest;
 use App\Http\Requests\EmailLoginRequest;
 use App\Http\Requests\EmailRegRequest;
 use App\Http\Requests\PhoneLoginRequest;
 use App\Http\Requests\PhoneRegRequest;
 use App\User;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -55,21 +57,37 @@ class AuthController extends Controller
             'name'      =>  isset($data['name'])?$data['name']:null,
             'phone'     =>  isset($data['phone'])?$data['phone']:null,
             'email'     =>  isset($data['email'])?$data['email']:null,
-            'type'      =>  isset($data['type'])?$data['type']:null,
+            'role'      =>  isset($data['role'])?$data['role']:null,
             'active'    =>  isset($data['active'])?$data['active']:false,
             'password'  =>  bcrypt($data['password'])
         ]);
     }
 
+    public function getChoseRegRole()
+    {
+        return view('auth.chose_role');
+    }
+
+    public function postChoseRegRole(ChoseUserRoleRequest $request)
+    {
+        $role = $request->get('role');
+        switch($role){
+            case 'lawyer':
+            case 'client':
+                return redirect('register/'.$role);
+            default:
+                return redirect('/')->withError('您的信息已被记录，恶意攻击将被记录在案');
+        }
+    }
 
     /**
      * 手机注册页面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getPhoneRegister()
+    public function getPhoneRegister($role)
     {
-        return view('auth.phone_reg');
+        return view('auth.phone_reg')->with('role',$role);
     }
 
     /**
@@ -80,6 +98,12 @@ class AuthController extends Controller
      */
     public function postPhoneRegister(PhoneRegRequest $request)
     {
+        $role = $request->get('role');
+
+        if(!in_array($role,['lawyer','client'])){
+            return redirect('/')->withErrors('抱歉,我们没有这样的角色类型供用户注册');
+        }
+
         $key = 'reg_'.$request->get('phone');
 
 //        if(!Cache::has($key)){
@@ -208,7 +232,6 @@ class AuthController extends Controller
 
     private function sendActivatedMail($user)
     {
-
         $data = array(
             array(
                 'email'   => $user->email,
@@ -224,10 +247,4 @@ class AuthController extends Controller
             });
         }
     }
-
-    public function selectRegType()
-    {
-        return view('auth.select_type');
-    }   
-
 }

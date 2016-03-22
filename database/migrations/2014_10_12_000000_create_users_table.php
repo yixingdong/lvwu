@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('wb_id')->unique()->nullable()->index();//微信id
             $table->string('email',40)->unique()->nullable()->index();//邮箱
             $table->boolean('email_active')->default(false);
-            $table->string('type',20)->nullable();//类型
+            $table->string('role',20)->nullable();//类型
             $table->string('avatar')->nullable();
             $table->boolean('active')->default(false);
             $table->string('password', 60);//密码
