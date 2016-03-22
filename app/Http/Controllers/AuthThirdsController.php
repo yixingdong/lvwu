@@ -115,7 +115,7 @@ class AuthThirdsController extends Controller
         switch ($user->role){
             case 'lawyer':
                 $user->save();
-                return redirect('/auth/profile');
+                return redirect('/')->withErrors('恭喜你已经完成律师基本信息，接下来您需要提交您的资质材料进行进一步审核');
             case 'client':
                 $user->active = true;
                 $user->save();
