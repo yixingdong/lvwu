@@ -64,7 +64,7 @@
                             @endif
                             @if(is_null(Auth::user()->email))
                             <div class="col-xs-4 col-xs-offset-3">
-                                <a class="btn btn-warning" href="#">绑定邮箱</a>
+                                <a class="btn btn-warning" href="{{url('bind/email')}}">绑定邮箱</a>
                             </div>
                             @endif
                             @if(is_null(Auth::user()->phone))

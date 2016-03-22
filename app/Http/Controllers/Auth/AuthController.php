@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Requests\ChoseUserRoleRequest;
+use App\Http\Requests\EmailBindRequest;
 use App\Http\Requests\EmailLoginRequest;
 use App\Http\Requests\EmailRegRequest;
 use App\Http\Requests\PhoneLoginRequest;
@@ -201,7 +202,6 @@ class AuthController extends Controller
      */
     public function postEmailRegister(EmailRegRequest $request)
     {
-
         $info = array_merge($request->all(),['active'=>false]);
         $user = $this->create($info);
 
@@ -246,5 +246,19 @@ class AuthController extends Controller
                 $m->to($user->email)->subject('律屋邮箱绑定');
             });
         }
+    }
+
+    public function getBindEmail()
+    {
+        return view('auth.email_bind');
+    }
+
+    public function postBindEmail(EmailBindRequest $request)
+    {
+        $user = $request->user();
+        $user->email = $request->get('mail');
+        $user->save();
+        $this->sendActivatedMail($user);
+        return redirect('/')->withErrors('恭喜您注册成功!请到您邮箱进行激活');
     }
 }

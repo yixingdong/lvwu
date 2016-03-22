@@ -53,12 +53,12 @@ class CommunicationController extends Controller
                 case 'reg':
                 case 'reset':                    
                     Cache::add($info['todo'].'_'.$info['phone'], $info['content'][0], 2);
-                    return response()->json(['code' => 200, 'info' => '验证发送成功']);
+                    return response()->json(['code' => 200, 'info' => '验证码发送成功']);
                 default:
                     break;
             }
         }
-        return response()->json(['code' => 400, 'info' => '验证发送失败']);
+        return response()->json(['code' => 400, 'info' => '验证码发送失败']);
     }
 
     /**
