@@ -32,8 +32,7 @@ $(function(){
     }
 
    $("#get_code").click(function(){
-       //getPhoneCode();
-       sendMsg();
+       getPhoneCode();
     });
 
     //var map = new AMap.Map('map');   

@@ -65,17 +65,17 @@ class PasswordController extends Controller
             return redirect('register')->withErrors('此号码尚未注册，请注册后登录');
         }
 
-//        $key = 'reset_'.$phone;
-//
-//        if(!Cache::has($key)){
-//            return back()->withErrors('验证码已失效');
-//        }
-//
-//        $value = Cache::get($key);
-//
-//        if($request->get('code') != $value){
-//            return back()->withErrors('验证码不正确');
-//        }
+        $key = 'reset_'.$phone;
+
+        if(!Cache::has($key)){
+            return back()->withErrors('验证码已失效');
+        }
+
+        $value = Cache::get($key);
+
+        if($request->get('code') != $value){
+            return back()->withErrors('验证码不正确');
+        }
 
         return redirect('reset/confirm')->with('phone',$phone);
     }

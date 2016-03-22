@@ -34,7 +34,6 @@
 	    </div>
 	  </div><!-- /.box-body -->
 	  <div class="box-footer">
-	    <a class="btn btn-default" href="{{URL('login/email')}}">邮箱登录</a>
 	    <a class="btn btn-default" href="{{URL('reset')}}">忘记密码</a>
 	    <button type="submit" class="btn btn-info pull-right">登录</button>
 	  </div><!-- /.box-footer -->
