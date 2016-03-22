@@ -30,7 +30,6 @@
               <img src="{{ url('tool/cpt') }}" onclick="this.src='{{ url('tool/cpt')}}?r='+Math.random();" alt="">
           </div>
         </div>
-        <br/>
         <div class="form-group">
           <div class="col-sm-8">
             <div class="input-group">
