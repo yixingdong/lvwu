@@ -44,17 +44,17 @@ class AuthThirdsController extends Controller
         if(!$user){
             $user = User::create([
                 'wx_id' => $wx_info['id'],
-                'type'  => 'undefined',
+                'role'  => 'undefined',
                 'avatar' => $wx_info['avatar']
             ]);
         }
 
         Auth::login($user);
 
-        switch ($user->type){
+        switch ($user->role){
             case 'lawyer':
             case 'assist':
-                return redirect('/')->withErrors('欢迎'.$user->type.'使用我们的法律平台');
+                return redirect('/')->withErrors('欢迎'.$user->role.'使用我们的法律平台');
             case 'client':
                 return redirect('/')->withErrors('欢迎咨询用户使用我们的服务');
             case 'undefined':
@@ -117,9 +117,9 @@ class AuthThirdsController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function getChoseType(Request $request)
+    public function getChoseRole(Request $request)
     {
-        return view('thirds.chose_user_type');
+        return view('thirds.chose_user_role');
     }
 
     /**
@@ -128,7 +128,7 @@ class AuthThirdsController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function postChoseType(Requests\ChoseUserRoleRequest $request)
+    public function postChoseRole(Requests\ChoseUserRoleRequest $request)
     {
         $role = $request->get('role');
         switch($role){
