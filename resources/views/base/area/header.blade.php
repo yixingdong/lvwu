@@ -136,7 +136,7 @@
                             @endif
                             @if(is_null(Auth::user()->phone))
                             <div class="col-xs-4 text-center">
-                                <a href="{{url('thirds/chose')}}">绑定手机</a>
+                                <a class="btn  btn-warning" href="{{url('thirds/chose')}}">绑定手机</a>
                             </div>
                             @endif
                         </li>
