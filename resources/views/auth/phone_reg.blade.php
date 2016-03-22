@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="box-footer">
-          <a class="btn btn-default text-info" href="{{URL('/register/email')}}">邮箱注册</a>
+          <a class="btn btn-default text-info" href="{{URL('/reg/email')}}">邮箱注册</a>
           <button type="submit" class="btn btn-info pull-right">注册</button>
         </div><!-- /.box-footer -->
     </form>

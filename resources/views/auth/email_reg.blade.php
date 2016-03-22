@@ -10,7 +10,7 @@
         </div>
     </div>
     <!-- form start -->
-    <form class="form-horizontal" method="POST" action="{{URL('register/email')}}">
+    <form class="form-horizontal" method="POST" action="{{URL('reg/email')}}">
       {!! csrf_field() !!}
       <div class="box-body">
         <div class="input-group">

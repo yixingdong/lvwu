@@ -24,8 +24,8 @@ Route::post('reset', 'Auth\PasswordController@postPhoneReset');
 Route::get('reset/confirm', 'Auth\PasswordController@getPhoneResetConfirm');
 Route::post('reset/confirmed', 'Auth\PasswordController@postPhoneResetConfirm');
 
-Route::get('register/email', 'Auth\AuthController@getEmailRegister');
-Route::post('register/email', 'Auth\AuthController@postEmailRegister');
+Route::get('reg/email', 'Auth\AuthController@getEmailRegister');
+Route::post('reg/email', 'Auth\AuthController@postEmailRegister');
 Route::get('active/email/{token}','Auth\AuthController@getActiveEmail');
 Route::get('reset/email', 'Auth\PasswordController@getEmail');
 Route::post('reset/email', 'Auth\PasswordController@postEmail');
