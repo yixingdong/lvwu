@@ -135,6 +135,7 @@ class AuthThirdsController extends Controller
         switch($type){
             case 'lawyer':
             case 'client':
+                echo $type;
                 $user = $request->user();
                 if(!isset($user->type)){
                     $user->type = $type;
@@ -169,6 +170,7 @@ class AuthThirdsController extends Controller
         $user = $request->user();
         $user->phone = $request->get('phone');
         $user->password = bcrypt($request->get('password'));
+        echo 'user-type  : '.$user->type;
         switch ($user->type){
             case 'lawyer':
                 return redirect('/');

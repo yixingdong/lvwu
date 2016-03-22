@@ -58,8 +58,8 @@
       <file leaf-file-name="AuthThirdsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="176" column="68" selection-start-line="176" selection-start-column="68" selection-end-line="176" selection-end-column="68" />
+            <state relative-caret-position="220">
+              <caret line="172" column="41" selection-start-line="172" selection-start-column="41" selection-end-line="172" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -932,12 +932,12 @@
       <workItem from="1458547688574" duration="10251000" />
       <workItem from="1458566958886" duration="810000" />
       <workItem from="1458570713109" duration="6632000" />
-      <workItem from="1458606609327" duration="4499000" />
+      <workItem from="1458606609327" duration="4810000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89056000" />
+    <option name="totallyTimeSpent" value="89367000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="962" y="110" width="1452" height="865" extended-state="0" />
@@ -1337,8 +1337,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="176" column="68" selection-start-line="176" selection-start-column="68" selection-end-line="176" selection-end-column="68" />
+        <state relative-caret-position="220">
+          <caret line="172" column="41" selection-start-line="172" selection-start-column="41" selection-end-line="172" selection-end-column="41" />
           <folding />
         </state>
       </provider>
