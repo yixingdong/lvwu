@@ -154,6 +154,7 @@ return [
         Overtrue\LaravelSocialite\ServiceProvider::class,//第三方登录
         Overtrue\LaravelWechat\ServiceProvider::class, //微信开发包
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,//Log服务
+        PragmaRX\Tracker\Vendor\Laravel\ServiceProvider::class,//Boss级数据跟踪系统
     ],
 
     /*
@@ -212,5 +213,6 @@ return [
         'SmsManager' => Toplan\Sms\Facades\SmsManager::class, //短信管理服务
         'Socialite' => Overtrue\LaravelSocialite\Socialite::class,//第三方登录
         'Wechat' => Overtrue\LaravelWechat\Facade::class, //微信开发包
+        'Tracker' => PragmaRX\Tracker\Vendor\Laravel\Facade::class,//Boss级数据跟踪系统
     ],
 ];
