@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a29c3ea-39ac-4d3a-965b-aaa86e0fdac2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/thirds/chose_user_type.blade.php" afterPath="$PROJECT_DIR$/resources/views/thirds/chose_user_type.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" />
     </list>
     <ignored path="base.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,7 +54,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthThirdsController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AuthThirdsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184">
@@ -69,18 +67,18 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-265">
+            <state relative-caret-position="-334">
               <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthWeChatController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AuthWeChatController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1311">
-              <caret line="73" column="42" selection-start-line="73" selection-start-column="42" selection-end-line="73" selection-end-column="42" />
+            <state relative-caret-position="230">
+              <caret line="74" column="39" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -185,9 +183,9 @@
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/config/tracker.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" />
         <option value="$PROJECT_DIR$/resources/views/thirds/chose_user_type.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" />
       </list>
     </option>
   </component>
@@ -936,12 +934,12 @@
       <workItem from="1458547688574" duration="10251000" />
       <workItem from="1458566958886" duration="810000" />
       <workItem from="1458570713109" duration="6632000" />
-      <workItem from="1458606609327" duration="2642000" />
+      <workItem from="1458606609327" duration="2871000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87199000" />
+    <option name="totallyTimeSpent" value="87428000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-28" y="95" width="1452" height="865" extended-state="0" />
@@ -1314,22 +1312,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-265">
-          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="73" column="42" selection-start-line="73" selection-start-column="42" selection-end-line="73" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/thirds/chose_user_type.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -1342,6 +1324,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-334">
+          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="74" column="39" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
           <folding />
         </state>
       </provider>
