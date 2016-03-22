@@ -130,12 +130,12 @@ class AuthThirdsController extends Controller
      */
     public function postChoseType(Requests\ChoseUserRoleRequest $request)
     {
-        $type = $request->get('role');
-        switch($type){
+        $role = $request->get('role');
+        switch($role){
             case 'lawyer':
             case 'client':
                 $user = $request->user();
-                $user->type = $type;
+                $user->role = $role;
                 $user->save();
                 return redirect('thirds/new');
             default:
@@ -164,7 +164,7 @@ class AuthThirdsController extends Controller
         $user = $request->user();
         $user->phone = $request->get('phone');
         $user->password = bcrypt($request->get('password'));
-        switch ($user->type){
+        switch ($user->role){
             case 'lawyer':
                 $user->save();
                 return redirect('/auth/profile');
