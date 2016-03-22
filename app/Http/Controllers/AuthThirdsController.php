@@ -129,19 +129,16 @@ class AuthThirdsController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function postChoseType(Request $request)
+    public function postChoseType(Requests\ChoseUserTypeRequest $request)
     {
         $type = $request->get('role');
         switch($type){
             case 'lawyer':
             case 'client':
-                echo $type;
                 $user = $request->user();
                 $user->type = $type;
-                $user->save();             
-                if(!isset($user->phone)){
-                    return redirect('thirds/new');
-                }
+                $user->save();
+                return redirect('thirds/new');
             default:
                 return redirect('/')->withError('您的信息已被记录，恶意攻击将被记录在案');
         }
@@ -168,12 +165,13 @@ class AuthThirdsController extends Controller
         $user = $request->user();
         $user->phone = $request->get('phone');
         $user->password = bcrypt($request->get('password'));
-        echo 'user-type  : '.$user->type;
         switch ($user->type){
             case 'lawyer':
+                $user->save();
                 return redirect('/');
             case 'client':
                 $user->active = true;
+                $user->save();
                 return redirect('/')->withErrors('尊敬的咨询用户，您的账户已激活');
             default:
                 return redirect('/')->withErrors('您的信息已被记录，恶意攻击将被记录在案');
