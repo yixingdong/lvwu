@@ -6,7 +6,7 @@
                 <h3 class="widget-user-username">选择用户类型</h3>
             </div>
             <div class="widget-user-image">
-                <img class="img-circle" src="{{URL::asset('/')}}images/user9-128x128.jpg" alt="User Avatar">
+                <img class="img-circle" src="{{$user->avatar}}" alt="User Avatar">
             </div>
         </div>
         <!-- form start -->
