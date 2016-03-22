@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a29c3ea-39ac-4d3a-965b-aaa86e0fdac2" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/thirds/chose_user_type.blade.php" afterPath="$PROJECT_DIR$/resources/views/thirds/chose_user_type.blade.php" />
     </list>
@@ -55,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthThirdsController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AuthThirdsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="61" column="64" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
+            <state relative-caret-position="184">
+              <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -85,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chose_user_type.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chose_user_type.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/thirds/chose_user_type.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+            <state relative-caret-position="207">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -185,8 +186,8 @@
         <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/config/tracker.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" />
         <option value="$PROJECT_DIR$/resources/views/thirds/chose_user_type.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" />
       </list>
     </option>
   </component>
@@ -205,8 +206,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="589" />
-    <option name="y" value="62" />
+    <option name="x" value="-28" />
+    <option name="y" value="95" />
     <option name="width" value="1452" />
     <option name="height" value="865" />
   </component>
@@ -935,15 +936,15 @@
       <workItem from="1458547688574" duration="10251000" />
       <workItem from="1458566958886" duration="810000" />
       <workItem from="1458570713109" duration="6632000" />
-      <workItem from="1458606609327" duration="2256000" />
+      <workItem from="1458606609327" duration="2642000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86813000" />
+    <option name="totallyTimeSpent" value="87199000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="589" y="62" width="1452" height="865" extended-state="0" />
+    <frame x="-28" y="95" width="1452" height="865" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1329,18 +1330,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/thirds/chose_user_type.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="61" column="64" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
+        <state relative-caret-position="207">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/thirds/chose_user_type.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        <state relative-caret-position="184">
+          <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
           <folding />
         </state>
       </provider>
