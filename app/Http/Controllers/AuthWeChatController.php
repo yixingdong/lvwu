@@ -35,7 +35,7 @@ class AuthWeChatController extends Controller
         echo "I am WeChat provider callback handler";
         $wx_user = Socialite::driver('wechat')->user();
         Log::info('微信用户id = '.$wx_user['id']);
-        dd($wx_user);
+
         return $this->UserBindWeChatAccount($wx_user);
     }
 
@@ -72,7 +72,6 @@ class AuthWeChatController extends Controller
         if(is_null($user)){
             $user = User::create([
                 'wx_id' => $wx_info['id'],
-                'avatar' => $wx_info['avatar'],
                 'type'  => 'undefined'
             ]);
         }

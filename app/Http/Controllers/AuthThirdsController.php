@@ -12,48 +12,6 @@ use Socialite;
 
 class AuthThirdsController extends Controller
 {
-    public function wxCheck(Server $server)
-    {
-        $server->on('message', function($message){
-            return "欢迎关注 overtrue！";
-        });
-
-        return $server->serve(); // 或者 return $server;
-    }
-
-    /**
-     * 微信登陆页面
-     *
-     * @return mixed
-     */
-    public function wxLogin()
-    {
-        echo 'I am going to WeiChat Login page';
-        return  Socialite::driver('wechat')->redirect();
-    }
-
-    /**
-     * 微信登陆回调处理
-     *
-     * @return mixed
-     */
-    public function wxCallback()
-    {
-        echo "I am WeChat provider callback handler";
-
-        $wx_user = Socialite::driver('wechat')->user();
-        dd($wx_user);
-
-//        try{
-//            $wx_user = Socialite::driver('wechat')->user();
-//        }catch (Exception $e){
-//            dd($e->getMessage());
-//        }
-
-        return $this->UserBindWeChatAccount($wx_user);
-    }
-
-
     /**
      * 用户账号与微信账号绑定逻辑（）
      *
@@ -86,7 +44,8 @@ class AuthThirdsController extends Controller
         if(is_null($user)){
             $user = User::create([
                 'wx_id' => $wx_info['id'],
-                'type'  => 'undefined'
+                'type'  => 'undefined',
+                'avatar' => $wx_info['avatar'],
 
             ]);
         }
