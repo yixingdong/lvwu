@@ -40,7 +40,7 @@ class AuthThirdsController extends Controller
         //2 如果用户没有登录
         $user = User::where('wx_id',$wx_info['id'])->first();
 
-        // 如果用户是不是已注册用户，需要创建新用户
+        // 如果用户不是已注册用户，需要创建新用户
         if(!$user){
             $user = User::create([
                 'wx_id' => $wx_info['id'],
@@ -50,6 +50,7 @@ class AuthThirdsController extends Controller
         }
 
         Auth::login($user);
+        dd($user);
 
         switch ($user->role){
             case 'lawyer':
@@ -117,7 +118,7 @@ class AuthThirdsController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function getChoseRole(Request $request)
+    public function getChoseRole()
     {
         return view('thirds.chose_user_role');
     }
