@@ -33,14 +33,6 @@ Route::get('reset/email/{token}', 'Auth\PasswordController@getEmailReset');
 Route::post('reset/email/confirmed', 'Auth\PasswordController@postEmailReset');
 
 Route::group(['prefix' => 'thirds'], function(){
-    Route::get('wx/login','AuthThirdsController@wxLogin');
-    Route::any('wx/callback','AuthThirdsController@wxCallback');
-    Route::get('wx/check','AuthThirdsController@wxCheck');
-    Route::get('qq/login','AuthThirdsController@qqLogin');
-    Route::get('qq/callback','AuthThirdsController@qqCallback');
-    Route::get('wb/login','AuthThirdsController@wbLogin');
-    Route::get('wb/callback','AuthThirdsController@wbCallback');
-
     Route::get('chose','AuthThirdsController@getChoseType');
     Route::post('chose','AuthThirdsController@postChoseType');
     Route::get('bind','AuthThirdsController@getBindExistUser');
