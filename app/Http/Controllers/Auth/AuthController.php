@@ -118,11 +118,21 @@ class AuthController extends Controller
             return back()->withErrors('验证码不正确');
         }
 
-        $info = array_merge($request->all(),['active'=>true]);
-        $user = $this->create($info);
+        $user = $this->create($request->all());
 
-        if(is_object($user)){
+        if($user){
             Auth::login($user);
+            switch ($user->role){
+                case 'lawyer':
+                    return redirect('/')->withErrors('律师用户注册完成，您需要提交您的执业资质进行审核');                    
+                case 'client':
+                    $user->active = true;
+                    $user->save();
+                    return redirect('/')->withErrors('咨询用户注册完成！您可以搜索您需要的律师了');
+                default:
+                    return redirect('/')->withErrors('我去，外星人啊');
+            }
+
             return redirect('/')->withErrors('恭喜您已经完成了注册');
         }
     }
