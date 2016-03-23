@@ -14,6 +14,7 @@
         <form class="form-horizontal" method="POST" action="{{URL('bind/new')}}">
             {!! csrf_field() !!}
             <input type="hidden" name="todo" value="reg">
+            <input type="hidden" name="uri" value="{{url('/')}}">
             <div class="box-body">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-phone"></i></span>
@@ -29,7 +30,17 @@
                     <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
                     <input type="password" class="form-control" placeholder="确认密码" name="password_confirmation">
                 </div>
-                <br/>
+                <div class="form-group">
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            <input type="text" class="form-control" placeholder="输入图形验证码" name="cpt">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <img src="{{ url('tool/cpt') }}" onclick="this.src='{{ url('tool/cpt')}}?r='+Math.random();" alt="">
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-sm-8">
                         <div class="input-group">
@@ -44,6 +55,7 @@
                 <div class="box-footer">
                     <button type="submit" class="btn btn-info pull-right">注册</button>
                 </div><!-- /.box-footer -->
+            </div>
         </form>
     </div>
 @stop
