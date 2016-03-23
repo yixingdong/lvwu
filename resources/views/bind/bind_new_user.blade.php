@@ -30,6 +30,7 @@
                     <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
                     <input type="password" class="form-control" placeholder="确认密码" name="password_confirmation">
                 </div>
+                <br/>
                 <div class="form-group">
                     <div class="col-sm-8">
                         <div class="input-group">
