@@ -199,7 +199,7 @@ class BindController extends Controller
         $result = DB::table('email_actives')->insert($data);
         if($result){
             $info = $data[0];
-            Mail::send('email.bind', ['token' => $info['token'] ], function ($m) use ($user) {
+            Mail::send('emails.bind', ['token' => $info['token'] ], function ($m) use ($user) {
                 $m->to($user->email)->subject('律屋邮箱绑定');
             });
         }
