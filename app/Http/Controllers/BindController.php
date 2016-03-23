@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use Socialite;
 
-class AuthBindController extends Controller
+class BindController extends Controller
 {
     /**
      * @return mixed
@@ -42,7 +42,7 @@ class AuthBindController extends Controller
     {
         $phone = $request->get('phone');
         $password = $request->get('password');
-        
+
 
         $user = User::where('phone',$phone)->first();
         if($user && $user->password == bcrypt($password)){
@@ -143,3 +143,4 @@ class AuthBindController extends Controller
         return redirect('/')->withErrors('恭喜您注册成功!请到您邮箱进行激活');
     }
 }
+

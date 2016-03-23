@@ -35,16 +35,15 @@ Route::get('active/email/{token}','Auth\AuthController@getActiveEmail');
 
 
 Route::group(['prefix' => 'bind'], function(){
-    Route::get('chose','AuthBindController@getChoseRole');
-    Route::post('chose','AuthBindController@postChoseRole');
-    Route::get('exist','AuthBindController@getBindExistUser');
-    Route::post('exist','AuthBindController@postBindExistUser');
-    Route::get('new','AuthBindController@getBindNewUser');
-    Route::post('new','AuthBindController@postBindNewUser');
+    Route::get('chose','BindController@getChoseRole');
+    Route::post('chose','BindController@postChoseRole');
+    Route::get('exist','BindController@getBindExistUser');
+    Route::post('exist','BindController@postBindExistUser');
+    Route::get('new','BindController@getBindNewUser');
+    Route::post('new','BindController@postBindNewUser');
 
-    Route::get('email', 'AuthBindController@getBindEmail');
-    Route::post('email', 'AuthBindController@postBindEmail');
-
+    Route::get('email', 'BindController@getBindEmail');
+    Route::post('email', 'BindController@postBindEmail');
 });
 
 Route::group(['prefix' => 'wx'], function() {
