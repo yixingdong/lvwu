@@ -2,18 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a29c3ea-39ac-4d3a-965b-aaa86e0fdac2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/area/footer.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/area/header.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/area/sidebar.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/master.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/lawyer/area/footer.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/lawyer/area/header.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/lawyer/area/sidebar.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/lawyer/master.blade.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/base/admin.blade.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/base/area/footer.blade.php" afterPath="$PROJECT_DIR$/resources/views/base/area/footer.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/base/area/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/base/area/header.blade.php" />
     </list>
     <ignored path="base.iws" />
@@ -51,8 +39,8 @@
       <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/base/area/header.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="632">
-              <caret line="87" column="65" selection-start-line="87" selection-start-column="65" selection-end-line="87" selection-end-column="65" />
+            <state relative-caret-position="586">
+              <caret line="85" column="62" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -192,13 +180,13 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BindController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" />
-        <option value="$PROJECT_DIR$/resources/views/base/area/header.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/area/header.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/base/area/footer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/area/footer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/area/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/lawyer/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/master.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/base/area/header.blade.php" />
       </list>
     </option>
   </component>
@@ -491,12 +479,12 @@
       <workItem from="1458637913266" duration="1302000" />
       <workItem from="1458648595136" duration="13466000" />
       <workItem from="1458702014327" duration="3023000" />
-      <workItem from="1458715296356" duration="16161000" />
+      <workItem from="1458715296356" duration="16257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136779000" />
+    <option name="totallyTimeSpent" value="136875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
@@ -921,8 +909,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/base/area/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="87" column="65" selection-start-line="87" selection-start-column="65" selection-end-line="87" selection-end-column="65" />
+        <state relative-caret-position="586">
+          <caret line="85" column="62" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
           <folding />
         </state>
       </provider>
