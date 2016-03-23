@@ -143,7 +143,7 @@ class BindController extends Controller
         $user->email = $request->get('email');
         $user->save();
         $this->sendActivatedMail($user);
-        return redirect('/')->withErrors('恭喜您注册成功!请到您邮箱进行激活');
+        return redirect('/')->withErrors('绑定邮件已发送到您邮箱!请登录您邮箱的进行绑定');
     }
 
     private function sendActivatedMail($user)
