@@ -142,5 +142,23 @@ class BindController extends Controller
         $this->sendActivatedMail($user);
         return redirect('/')->withErrors('恭喜您注册成功!请到您邮箱进行激活');
     }
+
+    private function sendActivatedMail($user)
+    {
+        $data = array(
+            array(
+                'email'   => $user->email,
+                'token'   => Str::random(40),
+            )
+        );
+
+        $result = DB::table('email_actives')->insert($data);
+        if($result){
+            $info = $data[0];
+            Mail::send('auth.email_active', ['token' => $info['token'] ], function ($m) use ($user) {
+                $m->to($user->email)->subject('律屋邮箱绑定');
+            });
+        }
+    }
 }
 
