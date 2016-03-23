@@ -4,7 +4,7 @@ return [
 
     'default'   => [
         'length'    => 4,
-        'width'     => 120,
+        'width'     => 150,
         'height'    => 50,
         'quality'   => 100,
     ],
