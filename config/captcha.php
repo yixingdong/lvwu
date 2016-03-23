@@ -3,10 +3,10 @@
 return [
 
     'default'   => [
-        'length'    => 4,
+        'length'    => 2,
         'width'     => 120,
         'height'    => 36,
-        'quality'   => 95,
+        'quality'   => 100,
     ],
 
     'flat'   => [
