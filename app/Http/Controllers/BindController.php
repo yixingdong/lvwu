@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\DB;
 
 class BindController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * 返回绑定已有账户界面
      *
@@ -213,7 +219,7 @@ class BindController extends Controller
             if(is_null($info)){ //已过绑定失效期，是否重新发送绑定邮件
                 return redirect('/')->withErrors('验证信息已过期');
             }
-            
+
             $user = User::where('email',$info->email)->first();
             $user->email_active = true;
             $user->save();
