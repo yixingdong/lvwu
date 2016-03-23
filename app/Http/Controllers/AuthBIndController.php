@@ -128,4 +128,18 @@ class AuthBindController extends Controller
         Auth::login($user);
         return redirect('/')->withErrors('恭喜您已经完成了注册');
     }
+
+    public function getBindEmail()
+    {
+        return view('auth.email_bind');
+    }
+
+    public function postBindEmail(Request $request)
+    {
+        $user = $request->user();
+        $user->email = $request->get('mail');
+        $user->save();
+        $this->sendActivatedMail($user);
+        return redirect('/')->withErrors('恭喜您注册成功!请到您邮箱进行激活');
+    }
 }
