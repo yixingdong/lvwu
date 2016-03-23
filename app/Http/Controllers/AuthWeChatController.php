@@ -59,10 +59,9 @@ class AuthWeChatController extends Controller
         $info = Socialite::driver('wechat')->user();
 
         if(Auth::check()){
-            $this->bindWxAccountToUser($info);
-        }else{
-            $this->createWxAccount($info);
+            return $this->bindWxAccountToUser($info);
         }
+        return $this->createWxAccount($info);
     }
 
 
