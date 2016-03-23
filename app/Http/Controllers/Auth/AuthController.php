@@ -212,26 +212,6 @@ class AuthController extends Controller
         return back()->withErrors('注册失败，请再试一次');
     }
 
-    public function getActiveEmail($token = null)
-    {
-        if($token){
-            $info = DB::table('email_actives')->where('token',$token)->first();
-            if(is_object($info)){
-                $user = User::where('email',$info->email)->first();
-                $user->email_active = true;
-                if($user->save()){
-                    DB::table('email_actives')->where('token',$token)->delete(); // 删除此条存储记录
-                    if(Auth::check()){
-                        return redirect('/')->withErrors('邮箱已完成绑定');
-                    }
-                    Auth::login($user);
-                    return redirect('/')->withErrors('邮箱已激活并为您登录');
-                }
-            }
-            //已过激活失效期，是否重新发射激活邮件
-            return redirect('/')->withErrors('验证信息已过期');
-        }
-    }
 
     private function sendActivatedMail($user)
     {
