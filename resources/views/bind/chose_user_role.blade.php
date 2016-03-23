@@ -10,7 +10,7 @@
             </div>
         </div>
         <!-- form start -->
-        <form class="form-horizontal" action="{{URL('/thirds/chose')}}" method="POST">
+        <form class="form-horizontal" action="{{URL('/bind/chose')}}" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="box-body">
                 <div class="form-group">

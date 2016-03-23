@@ -85,7 +85,7 @@ class AuthWeChatController extends Controller
             case 'client':
                 return redirect('/')->withErrors('欢迎咨询用户使用我们的服务');
             case 'undefined':
-                return redirect('thirds/chose');
+                return redirect('bind/chose');
             default:
                 return redirect('/')->withErrors('您的信息已被记录，恶意攻击将被记录在案');
         }

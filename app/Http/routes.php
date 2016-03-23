@@ -24,24 +24,27 @@ Route::post('reset', 'Auth\PasswordController@postPhoneReset');
 Route::get('reset/confirm', 'Auth\PasswordController@getPhoneResetConfirm');
 Route::post('reset/confirmed', 'Auth\PasswordController@postPhoneResetConfirm');
 
-Route::get('reg/email', 'Auth\AuthController@getEmailRegister');
-Route::post('reg/email', 'Auth\AuthController@postEmailRegister');
+
 Route::get('active/email/{token}','Auth\AuthController@getActiveEmail');
-Route::get('reset/email', 'Auth\PasswordController@getEmail');
-Route::post('reset/email', 'Auth\PasswordController@postEmail');
-Route::get('reset/email/{token}', 'Auth\PasswordController@getEmailReset');
-Route::post('reset/email/confirmed', 'Auth\PasswordController@postEmailReset');
+//Route::get('reg/email', 'Auth\AuthController@getEmailRegister');
+//Route::post('reg/email', 'Auth\AuthController@postEmailRegister');
+//Route::get('reset/email', 'Auth\PasswordController@getEmail');
+//Route::post('reset/email', 'Auth\PasswordController@postEmail');
+//Route::get('reset/email/{token}', 'Auth\PasswordController@getEmailReset');
+//Route::post('reset/email/confirmed', 'Auth\PasswordController@postEmailReset');
 
-Route::get('bind/email', 'Auth\AuthController@getBindEmail')->middleware(['auth']);
-Route::post('bind/email', 'Auth\AuthController@postBindEmail');
 
-Route::group(['prefix' => 'thirds'], function(){
-    Route::get('chose','AuthThirdsController@getChoseRole');
-    Route::post('chose','AuthThirdsController@postChoseRole');
-    Route::get('bind','AuthThirdsController@getBindExistUser');
-    Route::post('bind','AuthThirdsController@postBindExistUser');
-    Route::get('new','AuthThirdsController@getBindNewUser');
-    Route::post('new','AuthThirdsController@postBindNewUser');
+Route::group(['prefix' => 'bind'], function(){
+    Route::get('chose','AuthBindController@getChoseRole');
+    Route::post('chose','AuthBindController@postChoseRole');
+    Route::get('exist','AuthBindController@getBindExistUser');
+    Route::post('exist','AuthBindController@postBindExistUser');
+    Route::get('new','AuthBindController@getBindNewUser');
+    Route::post('new','AuthBindController@postBindNewUser');
+
+    Route::get('email', 'AuthBindController@getBindEmail');
+    Route::post('email', 'AuthBindController@postBindEmail');
+
 });
 
 Route::group(['prefix' => 'wx'], function() {

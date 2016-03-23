@@ -31,7 +31,7 @@ class AuthThirdsController extends Controller
      */
     public function getBindExistUser()
     {
-        return view('thirds.bind_exist_user');
+        return view('bind.bind_exist_user');
     }
 
     /**
@@ -67,7 +67,7 @@ class AuthThirdsController extends Controller
      */
     public function getChoseRole()
     {
-        return view('thirds.chose_user_role');
+        return view('bind.chose_user_role');
     }
 
     /**
@@ -85,7 +85,7 @@ class AuthThirdsController extends Controller
                 $user = $request->user();
                 $user->role = $role;
                 $user->save();
-                return redirect('thirds/new');
+                return redirect('bind/new');
             default:
                 return redirect('/')->withError('抱歉,此为无效用户类型');
         }
@@ -98,7 +98,7 @@ class AuthThirdsController extends Controller
      */
     public function getBindNewUser()
     {
-        return view('thirds.bind_new_user');
+        return view('bind.bind_new_user');
     }
 
     /**

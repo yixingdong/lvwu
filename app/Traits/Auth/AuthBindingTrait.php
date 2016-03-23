@@ -73,7 +73,7 @@ trait AuthBindingTrait
             case 'client':
                 return redirect('/')->withErrors('欢迎咨询用户使用我们的服务');
             case 'undefined':
-                return redirect('thirds/chose');
+                return redirect('bind/chose');
             default:
                 return redirect('/')->withErrors('您的信息已被记录，恶意攻击将被记录在案');
         }
@@ -98,7 +98,7 @@ trait AuthBindingTrait
      */
     public function getBindExistUser()
     {
-        return view('thirds.bind_exist_user');
+        return view('bind.bind_exist_user');
     }
 
     /**
@@ -134,7 +134,7 @@ trait AuthBindingTrait
      */
     public function getChoseType(Request $request)
     {
-        return view('thirds.chose_user_type');
+        return view('bind.chose_user_type');
     }
 
     /**
@@ -155,7 +155,7 @@ trait AuthBindingTrait
                     $user->save();
                 }
                 if(!isset($user->phone)){
-                    return redirect('thirds/new');
+                    return redirect('bind/new');
                 }
             default:
                 return redirect('/')->withError('您的信息已被记录，恶意攻击将被记录在案');
@@ -169,7 +169,7 @@ trait AuthBindingTrait
      */
     public function getBindNewUser()
     {
-        return view('thirds.bind_new_user');
+        return view('bind.bind_new_user');
     }
 
     /**

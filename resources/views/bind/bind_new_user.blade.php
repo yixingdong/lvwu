@@ -11,7 +11,7 @@
             </div>
         </div>
         <!-- form start -->
-        <form class="form-horizontal" method="POST" action="{{URL('/thirds/new')}}">
+        <form class="form-horizontal" method="POST" action="{{URL('bind/new')}}">
             {!! csrf_field() !!}
             <input type="hidden" name="todo" value="reg">
             <div class="box-body">

@@ -10,7 +10,7 @@
             </div>
         </div>
         <!-- form start -->
-        <form class="form-horizontal" action="{{URL('/third/bind')}}" method="POST">
+        <form class="form-horizontal" action="{{URL('bind/exist')}}" method="POST">
             {!! csrf_field() !!}
             <div class="box-body">
                 <div class="input-group">
