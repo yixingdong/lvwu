@@ -85,13 +85,36 @@ class BindController extends Controller
         $role = $request->get('role');
         switch($role){
             case 'lawyer':
-            case 'client':
                 $user = $request->user();
                 $user->role = $role;
                 $user->save();
-                return redirect('bind/new');
+                return redirect('bind/select');
+            case 'client':
+                $user = $request->user();
+                $user->role = $role;
+                $user->active = true;
+                $user->save();
+                return redirect('/')->withErrors('恭喜，您咨询账号创建完成');
             default:
                 return redirect('/')->withError('抱歉,此为无效用户类型');
+        }
+    }
+
+    public function getBindUser()
+    {
+        return view('bind.chose_bind_user');
+    }
+
+    public function postBindUser(Request $request)
+    {
+        $bind = $request->get('bind');
+        switch($bind){
+            case 'new':
+                return redirect('bind/new');
+            case 'exist':
+                return redirect('bind/exist');
+            default:
+                return redirect('/')->withError('抱歉,此为无效绑定类型');
         }
     }
 

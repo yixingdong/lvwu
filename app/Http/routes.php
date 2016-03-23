@@ -37,8 +37,13 @@ Route::get('active/email/{token}','BindController@getActiveEmail');
 Route::group(['prefix' => 'bind'], function(){
     Route::get('chose','BindController@getChoseRole');
     Route::post('chose','BindController@postChoseRole');
+
+    Route::get('select','BindController@getBindUser');
+    Route::post('select','BindController@postBindUser');
+
     Route::get('exist','BindController@getBindExistUser');
     Route::post('exist','BindController@postBindExistUser');
+
     Route::get('new','BindController@getBindNewUser');
     Route::post('new','BindController@postBindNewUser');
 
