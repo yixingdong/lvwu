@@ -57,7 +57,7 @@
                         <li class="user-body">
                             @if(is_null(Auth::user()->wx_id))
                             <div class="col-xs-4">
-                                <a class="btn btn-warning" href="#">绑定微信</a>
+                                <a class="btn btn-warning" href="{{url('wx/bind')}}">绑定微信</a>
                             </div>
                             @endif
                             @if(!Auth::user()->email_active))

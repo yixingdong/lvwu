@@ -1,18 +1,15 @@
 <?php
 
 Route::get('/', function () {
-    Log::info('Showing user profile for user: ');
     return view('welcome');
 });
 
 /***************	Begin 用户认证系统自带控制器处理		**************/
 Route::get('login', 'Auth\AuthController@getPhoneLogin');
 Route::post('login', 'Auth\AuthController@postPhoneLogin');
-
 Route::get('login/email', 'Auth\AuthController@getEmailLogin');
 Route::post('login/email', 'Auth\AuthController@postEmailLogin');
 Route::get('logout', 'Auth\AuthController@getLogout');
-
 
 /***************	Begin 用户注册及密码重置	**************/
 Route::get('chose', 'Auth\AuthController@getChoseRegRole');
@@ -24,7 +21,6 @@ Route::post('reset', 'Auth\PasswordController@postPhoneReset');
 Route::get('reset/confirm', 'Auth\PasswordController@getPhoneResetConfirm');
 Route::post('reset/confirmed', 'Auth\PasswordController@postPhoneResetConfirm');
 
-
 Route::get('email/active/{token}','Auth\AuthController@getActiveEmail');
 Route::get('email/bind/{token}','BindController@getBindEmailHandler');
 
@@ -34,7 +30,6 @@ Route::get('email/bind/{token}','BindController@getBindEmailHandler');
 //Route::post('reset/email', 'Auth\PasswordController@postEmail');
 //Route::get('reset/email/{token}', 'Auth\PasswordController@getEmailReset');
 //Route::post('reset/email/confirmed', 'Auth\PasswordController@postEmailReset');
-
 
 Route::group(['prefix' => 'bind'], function(){
     Route::get('chose','BindController@getChoseRole');
@@ -58,8 +53,8 @@ Route::group(['prefix' => 'wx'], function() {
     Route::any('callback','AuthWeChatController@wxCallback');
     Route::get('check','AuthWeChatController@wxCheck');
 
-    Route::get('bind','AuthWeChatController@wxBind')->middleware('auth');
-    Route::get('unbind','AuthWeChatController@wxUnBind')->middleware('auth');
+    Route::get('bind','AuthWeChatController@wxBind');
+    Route::get('unbind','AuthWeChatController@wxUnBind');
 });
 
 
