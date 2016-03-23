@@ -93,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/base/area/header.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="262">
-              <caret line="64" column="68" selection-start-line="64" selection-start-column="68" selection-end-line="64" selection-end-column="68" />
+              <caret line="64" column="61" selection-start-line="64" selection-start-column="61" selection-end-line="64" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -621,15 +621,15 @@
       <workItem from="1458637913266" duration="1302000" />
       <workItem from="1458648595136" duration="13466000" />
       <workItem from="1458702014327" duration="3023000" />
-      <workItem from="1458715296356" duration="1305000" />
+      <workItem from="1458715296356" duration="1468000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121923000" />
+    <option name="totallyTimeSpent" value="122086000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="199" y="78" width="1903" height="867" extended-state="1" />
+    <frame x="199" y="78" width="1903" height="867" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1026,7 +1026,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/base/area/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
-          <caret line="64" column="68" selection-start-line="64" selection-start-column="68" selection-end-line="64" selection-end-column="68" />
+          <caret line="64" column="61" selection-start-line="64" selection-start-column="61" selection-end-line="64" selection-end-column="61" />
           <folding />
         </state>
       </provider>
