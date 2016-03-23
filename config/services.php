@@ -53,8 +53,8 @@ return [
         'redirect'      => 'http://exingdong.com/bind/wb/callback',
     ],
     'wechat' => [
-        'client_id'     => 'wxc9512ee29f35dbe1',
-        'client_secret' => 'bcd8f9aab70b6b8ce365cfb1d764736d',
-        'redirect'      => 'http://www.exingdong.com/wx/callback',
+        'client_id'     => 'wx92b14518e2ea48dc',
+        'client_secret' => 'd6b32578526ad7e015150abe0f66602a',
+        'redirect'      => 'http://www.lawood.cn/wx/callback',
     ],
 ];
