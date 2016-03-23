@@ -12,7 +12,7 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 @if(Auth::check())
-                <!-- Notifications Menu -->
+                        <!-- Notifications Menu -->
                 <li class="dropdown notifications-menu">
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -56,9 +56,9 @@
                         <!-- Menu Body -->
                         <li class="user-body">
                             @if(is_null(Auth::user()->wx_id))
-                            <div class="col-xs-4">
-                                <a class="btn btn-warning" href="#">绑定微信</a>
-                            </div>
+                                <div class="col-xs-4">
+                                    <a class="btn btn-warning" href="#">绑定微信</a>
+                                </div>
                             @endif
                             @if(!Auth::user()->email_active))
                             <div class="col-xs-4 col-xs-offset-3">
@@ -66,9 +66,9 @@
                             </div>
                             @endif
                             @if(is_null(Auth::user()->phone))
-                            <div class="col-xs-4 text-center col-xs-offset-3">
-                                <a class="btn btn-warning" href="{{url('bind/chose')}}">绑定手机</a>
-                            </div>
+                                <div class="col-xs-4 text-center col-xs-offset-3">
+                                    <a class="btn btn-warning" href="{{url('bind/chose')}}">绑定手机</a>
+                                </div>
                             @endif
                         </li>
                         <!-- Menu Footer-->

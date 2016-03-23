@@ -61,7 +61,7 @@ class AuthWeChatController extends Controller
         if(Auth::check()){
             return $this->bindWxAccountToUser($info);
         }
-        return $this->createWxAccount($info);
+        return $this->createOrLoginWxAccount($info);
     }
 
 
@@ -94,7 +94,7 @@ class AuthWeChatController extends Controller
      * @param $info
      * @return mixed
      */
-    private function createWxAccount($info)
+    private function createOrLoginWxAccount($info)
     {
         //2 如果用户没有登录
         $user = User::where('wx_id',$info['id'])->first();
