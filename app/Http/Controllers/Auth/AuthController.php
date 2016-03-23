@@ -124,7 +124,7 @@ class AuthController extends Controller
             Auth::login($user);
             switch ($user->role){
                 case 'lawyer':
-                    return redirect('/')->withErrors('律师用户注册完成，您需要提交您的执业资质进行审核');                    
+                    return redirect('/')->withErrors('律师用户注册完成，您需要提交您的执业资质进行审核');
                 case 'client':
                     $user->active = true;
                     $user->save();

@@ -14,8 +14,32 @@ use Illuminate\Support\Facades\Log;
 
 class AuthWeChatController extends Controller
 {
+
     /**
-     * 微信登陆页面
+     * 用户绑定微信入口，此方法只有auth用户可访问
+     *
+     * @return mixed
+     */
+    public function wxBind()
+    {
+        echo 'I am going to bind a wx account to a user';
+        return  Socialite::driver('wechat')->redirect();
+    }
+
+    /**
+     * 解除微信绑定
+     *
+     * @param Request $request
+     */
+    public function wxUnBind(Request $request)
+    {
+        $user = $request->user();
+        $user->wx_id = null;
+        return back()->withErrors('微信已解除绑定');
+    }
+
+    /**
+     * 微信登陆页面,只有guest用户可访问
      *
      * @return mixed
      */
@@ -26,17 +50,19 @@ class AuthWeChatController extends Controller
     }
 
     /**
-     * 微信登陆回调处理
+     * 微信登陆回调处理逻辑
      *
      * @return mixed
      */
     public function wxCallback()
     {
-        echo "I am WeChat provider callback handler";
-        $wx_user = Socialite::driver('wechat')->user();
-        Log::info('微信用户id = '.$wx_user['id']);
+        $info = Socialite::driver('wechat')->user();
 
-        return $this->UserBindWeChatAccount($wx_user);
+        if(!Auth::check()){
+            $this->bindWxAccountToUser($info);
+        }else{
+            $this->createWxAccount($info);
+        }
     }
 
 
@@ -46,32 +72,38 @@ class AuthWeChatController extends Controller
      * @param $wx_info
      * @return mixed
      */
-    public function UserBindWeChatAccount($wx_info)
+    private function bindWxAccountToUser($info)
     {
-        //1 判断用户已经登录
-        if(Auth::check()){
-            $user = Auth::user();
-            //1.1 如果用户不是用微信登陆的，那就为其绑定微信号
-            if(!$user->wx_id){
-                $result = User::where('wx_id',$wx_info['id'])->first();
-                if($result){
-                    return redirect('/')->withErrors('这个微信账号已被其他用户绑定，您不能绑定此微信账号');
-                }
-                $user->wx_id = $wx_info['id'];
-                $user->save();
-                return redirect('/')->withErrors('完成微信账号绑定');
+        $user = Auth::user();
+        //1.1 如果用户不是用微信登陆的，那就为其绑定微信号
+        if(!$user->wx_id){
+            $result = User::where('wx_id',$info['id'])->first();
+            if($result){
+                return redirect('/')->withErrors('这个微信账号已被其他用户绑定，您不能绑定此微信账号');
             }
-            //1.2 用户之前已经用微信扫码登录
-            return redirect('/')->withErrors('您已登录，无需重新扫码');
+            $user->wx_id = $info['id'];
+            $user->save();
+            return redirect('/')->withErrors('完成微信账号绑定');
         }
+        //1.2 用户之前已经用微信扫码登录
+        return redirect('/')->withErrors('您已登录，无需重新扫码');
+    }
 
+    /**
+     * 使用微信用户信息创建一个网站用户账号
+     *
+     * @param $info
+     * @return mixed
+     */
+    private function createWxAccount($info)
+    {
         //2 如果用户没有登录
-        $user = User::where('wx_id',$wx_info['id'])->first();
+        $user = User::where('wx_id',$info['id'])->first();
 
         // 如果用户是不是已注册用户，需要创建新用户
         if(is_null($user)){
             $user = User::create([
-                'wx_id' => $wx_info['id'],
+                'wx_id' => $info['id'],
                 'role'  => 'undefined',
             ]);
         }
