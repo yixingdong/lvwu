@@ -705,16 +705,16 @@
         },
         {
             "name": "jaybizzle/crawler-detect",
-            "version": "v1.1.8",
+            "version": "v1.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JayBizzle/Crawler-Detect.git",
-                "reference": "fbf301ffa98285c5c4caef479a06e06d41b4656e"
+                "reference": "c40a3ceb73eb91f3aaf0d25b79e178c5d1975347"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/JayBizzle/Crawler-Detect/fbf301ffa98285c5c4caef479a06e06d41b4656e.zip",
-                "reference": "fbf301ffa98285c5c4caef479a06e06d41b4656e",
+                "url": "https://packagist.phpcomposer.com/files/JayBizzle/Crawler-Detect/c40a3ceb73eb91f3aaf0d25b79e178c5d1975347.zip",
+                "reference": "c40a3ceb73eb91f3aaf0d25b79e178c5d1975347",
                 "shasum": ""
             },
             "require": {
@@ -748,7 +748,7 @@
                 "crawler detector",
                 "php crawler detect"
             ],
-            "time": "2016-03-16 21:16:44"
+            "time": "2016-03-22 10:52:58"
         },
         {
             "name": "jenssegers/agent",
@@ -2164,19 +2164,20 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "2.8.4",
+            "version": "2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "805d8e1894c52e5b1582e75ca8803a8d85650df9"
+                "reference": "b2ef4dd9584268d73f92f752a62bc24cd534dc9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/ramsey/uuid/805d8e1894c52e5b1582e75ca8803a8d85650df9.zip",
-                "reference": "805d8e1894c52e5b1582e75ca8803a8d85650df9",
+                "url": "https://packagist.phpcomposer.com/files/ramsey/uuid/b2ef4dd9584268d73f92f752a62bc24cd534dc9a.zip",
+                "reference": "b2ef4dd9584268d73f92f752a62bc24cd534dc9a",
                 "shasum": ""
             },
             "require": {
+                "paragonie/random_compat": "^1.0|^2.0",
                 "php": ">=5.3.3"
             },
             "replace": {
@@ -2226,7 +2227,7 @@
                 "identifier",
                 "uuid"
             ],
-            "time": "2015-12-17 16:54:24"
+            "time": "2016-03-22 18:20:19"
         },
         {
             "name": "rap2hpoutre/laravel-log-viewer",
