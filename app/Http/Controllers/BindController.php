@@ -180,7 +180,7 @@ class BindController extends Controller
                     return redirect('/')->withErrors('邮箱已激活并为您登录');
                 }
             }
-            //已过激活失效期，是否重新发射激活邮件
+            //已过绑定失效期，是否重新发射激活邮件
             return redirect('/')->withErrors('验证信息已过期');
         }
     }
