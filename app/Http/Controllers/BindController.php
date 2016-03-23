@@ -207,24 +207,18 @@ class BindController extends Controller
 
     public function getBindEmailHandler($token = null)
     {
-        if($token)
-        {
-            //检查表中是否有数据
+        if($token){
             $info = DB::table('email_actives')->where('token',$token)->first();
-            if(is_object($info)){
-                $user = User::where('email',$info->email)->first();
-                $user->active = true;
-                if($user->save()){
-                    DB::table('email_actives')->where('token',$token)->delete(); // 删除此条存储记录
-                    Auth::login($user);
-                    return redirect('/')->withErrors('邮箱已激活并为您登录');
-                }else{
-                    return redirect('/')->withErrors('不知道哪里出问题了，没有激活成功');
-                }
-            }else{
-                //已过激活失效期，是否重新发射激活邮件
+
+            if(is_null($info)){ //已过绑定失效期，是否重新发送绑定邮件
                 return redirect('/')->withErrors('验证信息已过期');
             }
+            
+            $user = User::where('email',$info->email)->first();
+            $user->email_active = true;
+            $user->save();
+            DB::table('email_actives')->where('token',$token)->delete(); // 删除此条存储记录
+            return redirect('/')->withErrors('邮箱已绑定并为您登录');
         }
     }
 }
