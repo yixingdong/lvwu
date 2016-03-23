@@ -1,5 +1,5 @@
 $(function(){
-    var address = 'http://123.56.198.15';
+    var address = $('input[name=uri]').val();
     function sendMsg(){
         $.ajax({
             url: address+'/communicate/phone_code',

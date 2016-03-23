@@ -25,4 +25,10 @@ class TestController extends Controller
         }
         dd($key.'~已失效');
     }
+
+    public function getUri(Request $request)
+    {
+        //dd($request->getUri());
+        //dd($request->getBaseUrl());
+    }
 }

@@ -42,6 +42,7 @@ class AuthThirdsController extends Controller
     {
         $phone = $request->get('phone');
         $password = $request->get('password');
+        
 
         $user = User::where('phone',$phone)->first();
         if($user && $user->password == bcrypt($password)){

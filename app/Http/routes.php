@@ -68,6 +68,7 @@ Route::group(['prefix' => 'communicate'], function(){
 Route::group(['prefix' => 'test'], function(){
     Route::get('put/{key}-{value}','TestController@putValue');
     Route::get('get/{key}','TestController@getValue');
+    Route::get('uri','TestController@getUri');
 });
 
 

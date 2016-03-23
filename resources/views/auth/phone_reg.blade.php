@@ -14,6 +14,7 @@
       {!! csrf_field() !!}
       <input type="hidden" name="todo" value="reg">
       <input type="hidden" name="role" value="{{$role}}">
+      <input type="hidden" name="uri" value="{{url('/')}}">
       <div class="box-body">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-phone"></i></span>

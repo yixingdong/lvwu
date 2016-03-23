@@ -13,6 +13,7 @@
     <form class="form-horizontal" method="POST" action="{{URL('reset')}}">
       {!! csrf_field() !!}
         <input type="hidden" name="todo" value="reset">
+        <input type="hidden" name="uri" value="{{url('/')}}">
       <div class="box-body">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-phone"></i></span>
