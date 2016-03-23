@@ -1,1 +1,0 @@
-律屋邮箱激活计划进行中：<a href="{{ URL('active/email/'. $token ) }}">激活</a>

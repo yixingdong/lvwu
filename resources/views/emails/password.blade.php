@@ -1,1 +1,1 @@
-律屋期待老友的回归：<a href="{{ URL('reset/email/'.$token) }}">重设密码</a>
+律屋热烈期待老友的华丽回归，点击链接即可重设密码：<a href="{{ URL('reset/email/'.$token) }}">重设密码</a>

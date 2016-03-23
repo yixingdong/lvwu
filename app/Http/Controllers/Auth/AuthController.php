@@ -64,11 +64,22 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * 返回用户注册类型选择页面
+     *
+     * @return mixed
+     */
     public function getChoseRegRole()
     {
         return view('auth.chose_role');
     }
 
+    /**
+     * 用户选择注册类型处理逻辑
+     *
+     * @param ChoseUserRoleRequest $request
+     * @return mixed
+     */
     public function postChoseRegRole(ChoseUserRoleRequest $request)
     {
         $role = $request->get('role');
@@ -82,7 +93,7 @@ class AuthController extends Controller
     }
 
     /**
-     * 手机注册页面
+     * 返回手机注册页面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -138,7 +149,7 @@ class AuthController extends Controller
     }
 
     /**
-     * 手机登录页面
+     * 返回手机登录页面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -167,7 +178,7 @@ class AuthController extends Controller
 
 
     /**
-     * 邮件登录页面
+     * 返回邮件登录页面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -195,7 +206,7 @@ class AuthController extends Controller
 
 
     /**
-     * 邮件注册页面
+     * 返回邮件注册页面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -223,6 +234,11 @@ class AuthController extends Controller
     }
 
 
+    /**
+     * 发送邮箱激活邮件
+     *
+     * @param $user
+     */
     private function sendActivatedMail($user)
     {
         $data = array(
@@ -235,7 +251,7 @@ class AuthController extends Controller
         $result = DB::table('email_actives')->insert($data);
         if($result){
             $info = $data[0];
-            Mail::send('auth.email_active', ['token' => $info['token'] ], function ($m) use ($user) {
+            Mail::send('emails.active', ['token' => $info['token'] ], function ($m) use ($user) {
                 $m->to($user->email)->subject('律屋邮箱绑定');
             });
         }

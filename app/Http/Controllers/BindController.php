@@ -16,20 +16,8 @@ use Illuminate\Support\Facades\DB;
 class BindController extends Controller
 {
     /**
-     * @return mixed
-     */
-    public function releaseWeChatAccount()
-    {
-        if(Auth::check()){
-            $user = Auth::user();
-            if($user->wx_id){
-                $user->wx_id = null;
-            }
-            return redirect('/')->withErrors('已经解除了原来的微信账号绑定');
-        }
-    }
-
-    /**
+     * 返回绑定已有账户界面
+     *
      * @return mixed
      */
     public function getBindExistUser()
@@ -38,6 +26,8 @@ class BindController extends Controller
     }
 
     /**
+     * 绑定已有账户处理逻辑
+     *
      * @param Request $request
      * @return mixed
      */
@@ -75,7 +65,7 @@ class BindController extends Controller
     }
 
     /**
-     * 选择注册类型的逻辑
+     * 选择注册类型的处理逻辑
      *
      * @param Request $request
      * @return mixed
@@ -100,11 +90,23 @@ class BindController extends Controller
         }
     }
 
+    /**
+     * 返回绑定用户方式选择界面
+     * 1 绑定已有账户
+     * 2 绑定新账号
+     * @return mixed
+     */
     public function getBindUser()
     {
         return view('bind.chose_bind_user');
     }
 
+    /**
+     * 绑定用户方式选择处理逻辑
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function postBindUser(Request $request)
     {
         $bind = $request->get('bind');
@@ -119,7 +121,7 @@ class BindController extends Controller
     }
 
     /**
-     * 第三方登录后，再完善手机和密码信息
+     * 返回绑定新的账号界面
      *
      * @return mixed
      */
@@ -129,7 +131,7 @@ class BindController extends Controller
     }
 
     /**
-     * 第三方登录后，再完善手机和密码信息
+     * 绑定新账号的处理逻辑
      *
      * @param Requests\BindNewUserRequest $request
      * @return mixed
@@ -155,21 +157,37 @@ class BindController extends Controller
         return redirect('/')->withErrors('恭喜您已经完成了注册');
     }
 
+    /**
+     * 返回绑定邮箱地址界面
+     *
+     * @return mixed
+     */
     public function getBindEmail()
     {
         return view('auth.email_bind');
     }
 
+    /**
+     * 绑定邮箱地址的处理逻辑
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function postBindEmail(Request $request)
     {
         $user = $request->user();
         $user->email = $request->get('email');
         $user->save();
-        $this->sendActivatedMail($user);
+        $this->sendBindEmailMail($user);
         return redirect('/')->withErrors('绑定邮件已发送到您邮箱!请登录您邮箱的进行绑定');
     }
 
-    private function sendActivatedMail($user)
+    /**
+     * 发送邮箱绑定邮件给用户
+     *
+     * @param $user
+     */
+    private function sendBindEmailMail($user)
     {
         $data = array(
             array(
@@ -181,30 +199,9 @@ class BindController extends Controller
         $result = DB::table('email_actives')->insert($data);
         if($result){
             $info = $data[0];
-            Mail::send('auth.email_active', ['token' => $info['token'] ], function ($m) use ($user) {
+            Mail::send('email.bind', ['token' => $info['token'] ], function ($m) use ($user) {
                 $m->to($user->email)->subject('律屋邮箱绑定');
             });
-        }
-    }
-
-    public function getActiveEmail($token = null)
-    {
-        if($token){
-            $info = DB::table('email_actives')->where('token',$token)->first();
-            if(is_object($info)){
-                $user = User::where('email',$info->email)->first();
-                $user->email_active = true;
-                if($user->save()){
-                    DB::table('email_actives')->where('token',$token)->delete(); // 删除此条存储记录
-                    if(Auth::check()){
-                        return redirect('/')->withErrors('邮箱已完成绑定');
-                    }
-                    Auth::login($user);
-                    return redirect('/')->withErrors('邮箱已激活并为您登录');
-                }
-            }
-            //已过绑定失效期，是否重新发射激活邮件
-            return redirect('/')->withErrors('验证信息已过期');
         }
     }
 }
