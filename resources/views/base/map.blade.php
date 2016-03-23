@@ -26,19 +26,7 @@
 <body class="hold-transition skin-green sidebar-mini">
 <!-- Header -->
 @include('base.area.header')
-<!-- Content Wrapper. Contains page content -->
-<div class="container">
-    <!-- Main content -->
-    <section class="content" style="min-height:600px;">
-        @if($errors->any())
-            @foreach($errors->all() as $error)
-                <p class="alert alert-warning">{{ $error }}</p>
-            @endforeach
-        @endif
-        <!-- Your Page Content Here -->
-        @yield('content')
-    </section><!-- /.content -->
-</div>
+@yield('content')
 <!-- Footer -->
 @include('base.area.footer')
 <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>

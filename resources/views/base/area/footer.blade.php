@@ -1,7 +1,4 @@
-<footer style="width:100%;padding:10px;background-color:#3b3b3b;color:white;min-height:200px;">
-
-</footer>
-<footer style="width:100%;padding:10px;background-color:#2d2d2d;color:white;">
+<footer style="width:100%;padding:15px;background-color:#2d2d2d;color:white;height: 350px;">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
         team@lawood.cn
