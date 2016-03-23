@@ -62,7 +62,7 @@
                                 <a class="btn btn-warning" href="#">绑定微信</a>
                             </div>
                             @endif
-                            @if(is_null(Auth::user()->email))
+                            @if(is_null(Auth::user()->email_active))
                             <div class="col-xs-4 col-xs-offset-3">
                                 <a class="btn btn-warning" href="{{url('bind/email')}}">绑定邮箱</a>
                             </div>
