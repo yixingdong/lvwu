@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use Socialite;
 
-class AuthThirdsController extends Controller
+class AuthBindController extends Controller
 {
     /**
      * @return mixed
