@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a29c3ea-39ac-4d3a-965b-aaa86e0fdac2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/thirds/bind_exist_user.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/thirds/bind_new_user.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/thirds/chose_user_role.blade.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthBIndController.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/thirds/bind_exist_user.blade.php" afterPath="$PROJECT_DIR$/resources/views/bind/bind_exist_user.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/thirds/bind_new_user.blade.php" afterPath="$PROJECT_DIR$/resources/views/bind/bind_new_user.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/thirds/chose_user_role.blade.php" afterPath="$PROJECT_DIR$/resources/views/bind/chose_user_role.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Traits/Auth/AuthBindingTrait.php" afterPath="$PROJECT_DIR$/app/Traits/Auth/AuthBindingTrait.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/services.php" afterPath="$PROJECT_DIR$/config/services.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/base/area/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/base/area/header.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/local.js" afterPath="$PROJECT_DIR$/public/js/local.js" />
     </list>
     <ignored path="base.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,11 +50,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthBIndController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AuthBIndController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthBIndController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-92">
               <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="local.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/local.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -76,16 +75,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
               <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="email_bind.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/auth/email_bind.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -182,7 +171,6 @@
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthWeChatController.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/email_reg.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/local.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordController.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/phone_login.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthThirdsController.php" />
@@ -200,6 +188,7 @@
         <option value="$PROJECT_DIR$/resources/views/thirds/bind_new_user.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/thirds/chose_user_role.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthBIndController.php" />
+        <option value="$PROJECT_DIR$/public/js/local.js" />
       </list>
     </option>
   </component>
@@ -639,12 +628,12 @@
       <workItem from="1458570713109" duration="6632000" />
       <workItem from="1458606609327" duration="18270000" />
       <workItem from="1458637913266" duration="1302000" />
-      <workItem from="1458648595136" duration="10600000" />
+      <workItem from="1458648595136" duration="11009000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114729000" />
+    <option name="totallyTimeSpent" value="115138000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
@@ -914,14 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/local.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CommunicationController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1150">
@@ -1066,6 +1047,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-92">
           <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/local.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
           <folding />
         </state>
       </provider>

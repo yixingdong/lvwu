@@ -1,5 +1,5 @@
 $(function(){
-    var address = 'http://www.lawood.cn';
+    var address = 'http://123.56.198.15';
     function sendMsg(){
         $.ajax({
             url: address+'/communicate/phone_code',
