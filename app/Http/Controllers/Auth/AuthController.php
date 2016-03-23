@@ -218,9 +218,12 @@ class AuthController extends Controller
             $info = DB::table('email_actives')->where('token',$token)->first();
             if(is_object($info)){
                 $user = User::where('email',$info->email)->first();
-                $user->active = true;
+                $user->email_active = true;
                 if($user->save()){
                     DB::table('email_actives')->where('token',$token)->delete(); // 删除此条存储记录
+                    if(Auth::check()){
+                        return redirect('/')->withErrors('邮箱已完成绑定');
+                    }
                     Auth::login($user);
                     return redirect('/')->withErrors('邮箱已激活并为您登录');
                 }
